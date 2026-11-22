@@ -31,11 +31,11 @@ if($assets.Count -ne 1){throw "APK no encontrada para $version"}
 $asset=$assets[0]
 $url="https://github.com/Acurast/acurast-processor-update/releases/download/$($rel.tag_name)/$name"
 if ([string]$asset.browser_download_url -cne $url) {throw 'Origen de descarga inesperado.'}
-Write-Host ("Ultima estable: {0}" -f $stable[0].tag_name)
-Write-Host ("Estable anterior: {0}" -f $stable[1].tag_name)
-Write-Host ("Seleccionada: {0}" -f $rel.tag_name)
-Write-Host ("Publicacion oficial: {0}" -f $rel.html_url)
-if(-not $Download){Write-Host 'Solo consulta: sin descarga ni instalacion.';return}
+Write-Output ("Ultima estable: {0}" -f $stable[0].tag_name)
+Write-Output ("Estable anterior: {0}" -f $stable[1].tag_name)
+Write-Output ("Seleccionada: {0}" -f $rel.tag_name)
+Write-Output ("Publicacion oficial: {0}" -f $rel.html_url)
+if(-not $Download){Write-Output 'Solo consulta: sin descarga ni instalacion.';return}
 $hm=[regex]::Match([string]$asset.digest,'^sha256:([a-fA-F0-9]{64})$')
 if(-not $hm.Success){throw 'Sin digest SHA-256 publicado por GitHub; detener.'}
 $expectedHash=$hm.Groups[1].Value.ToLowerInvariant()
