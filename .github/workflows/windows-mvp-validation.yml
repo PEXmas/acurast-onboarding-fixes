@@ -1,0 +1,59 @@
+name: Windows MVP checks
+
+on:
+  pull_request:
+    paths:
+      - "INICIAR.ps1"
+      - "tools/*.ps1"
+      - "tools/validate_cases.py"
+      - "compatibilidad/**"
+      - ".github/workflows/windows-mvp-validation.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  host-checks:
+    name: Validate registry and PowerShell 5.1 syntax
+    runs-on: windows-2022
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository (read-only)
+        uses: actions/checkout@v4
+
+      - name: Validate anonymized compatibility records
+        shell: pwsh
+        run: |
+          python tools/validate_cases.py
+          if ($LASTEXITCODE -ne 0) { throw "Compatibility registry validation failed" }
+
+      - name: Parse Windows PowerShell 5.1 tools
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $scripts = @(
+            'INICIAR.ps1',
+            'tools/Select-AcurastRelease.ps1',
+            'tools/Private-QR-Notepad.ps1',
+            'tools/Read-Device-Status.ps1'
+          )
+          foreach ($script in $scripts) {
+            $tokens = $null
+            $errors = $null
+            [void][System.Management.Automation.Language.Parser]::ParseFile(
+              (Join-Path (Get-Location) $script),
+              [ref]$tokens, [ref]$errors
+            )
+            if ($errors.Count -gt 0) {
+              $errors | ForEach-Object { Write-Error ("{0}: {1}" -f $script, $_.Message) }
+              throw ("PowerShell syntax check failed: " + $script)
+            }
+            Write-Host ("PASS: " + $script)
+          }
+
+      - name: No phone operations in CI
+        shell: pwsh
+        run: |
+          Write-Host "Tests only parse PowerShell and validate public JSON."
+          Write-Host "No ADB commands, QR payload, wallet, installation or Device Owner changes are executed."
