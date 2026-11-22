@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "explanation": "Anonymous case evidence for AI-assisted troubleshooting. Reports are not certifications. Online reporting from upstream is not independently verified by this fork.",
+  "entries": [
+    {
+      "id": "a52s-android14-win-guided-2026-11",
+      "device": "Samsung Galaxy A52s 5G (SM-A528B)",
+      "android": "14",
+      "core_initial": "1.27.1",
+      "core_final": null,
+      "method": "Windows ADB + community CoreProvision helper",
+      "source_type": "guided_observation",
+      "source": "docs/CASO_A52S.md",
+      "result": "core_ui_green_online_unverified",
+      "online_verified": false,
+      "evidence": [
+        "Core UI reached after a single experimental launch",
+        "Compute Status reportedly turned green following a Core update from device management",
+        "No independent Hub Online confirmation"
+      ],
+      "issues": [
+        {
+          "code": "usb_adb_connection",
+          "symptom": "ADB initially did not find the phone",
+          "observed_action": "USB cable was replaced",
+          "outcome": "ADB identified the phone"
+        },
+        {
+          "code": "work_profile_user10",
+          "symptom": "Package listing failed with user 10 permission error",
+          "observed_action": "Acurast Lite was de-enrolled and its work profile disappeared",
+          "outcome": "Only the primary user remained"
+        },
+        {
+          "code": "dpm_partial_owner",
+          "symptom": "set-device-owner reported IllegalStateException while list-owners subsequently showed DeviceOwner",
+          "observed_action": "No second set-device-owner attempt; diagnostic reads then a single experimental helper launch",
+          "outcome": "Android accepted launch; not evidence that provisioning finalized"
+        },
+        {
+          "code": "executors_missing",
+          "symptom": "Compute Status orange, Executors not installed",
+          "observed_action": "Core update requested from device manager",
+          "outcome": "Compute Status later reported green; causality not independently established"
+        },
+        {
+          "code": "adb_unavailable_after_core",
+          "symptom": "ADB no devices found after update",
+          "observed_action": "No attempt to re-enable developer settings",
+          "outcome": "Could be Core restrictions or cable/USB; not confirmed"
+        }
+      ],
+      "risk_notes": [
+        "Device Owner command ended in an exception; avoid treating as routine success",
+        "Online, compute jobs and rewards are unverified"
+      ],
+      "last_observed": "2026-11"
+    },
+    {
+      "id": "pixel9profold-android17-upstream-2026-09",
+      "device": "Google Pixel 9 Pro Fold",
+      "android": "17",
+      "core_initial": "1.26.0",
+      "core_final": "1.27.1",
+      "method": "Community USB method",
+      "source_type": "upstream_community_report",
+      "source": "https://github.com/bokiko/acurast-onboarding-fixes/blob/main/README.md",
+      "result": "online_reported_upstream",
+      "online_verified": false,
+      "evidence": [
+        "Upstream README reports Online after updating Core from 1.26.0 to 1.27.1"
+      ],
+      "issues": [
+        {
+          "code": "core_version_mismatch",
+          "symptom": "Earlier Core release did not complete setup in reported case",
+          "observed_action": "Updated Core",
+          "outcome": "Upstream reports Online"
+        }
+      ],
+      "risk_notes": [
+        "Community report; not replicated by this fork",
+        "Different OS and builds require independent verification"
+      ],
+      "last_observed": "2026-09"
+    },
+    {
+      "id": "pixel6pro-android14-upstream-2026-09",
+      "device": "Google Pixel 6 Pro",
+      "android": "14",
+      "core_initial": "1.27.1",
+      "core_final": null,
+      "method": "Community USB method after separate OS downgrade",
+      "source_type": "upstream_community_report",
+      "source": "https://github.com/bokiko/acurast-onboarding-fixes/blob/main/README.md",
+      "result": "online_reported_upstream",
+      "online_verified": false,
+      "evidence": [
+        "Upstream README reports Online after a separate OS downgrade"
+      ],
+      "issues": [
+        {
+          "code": "os_downgrade_reported",
+          "symptom": "Report involved a separate OS downgrade",
+          "observed_action": "Original source reports prior OS downgrade",
+          "outcome": "Upstream reports Online"
+        }
+      ],
+      "risk_notes": [
+        "Do not recommend downgrading or flashing firmware from this single report",
+        "Community report; not replicated by this fork"
+      ],
+      "last_observed": "2026-09"
+    },
+    {
+      "id": "samsung-a05-android14-upstream-2026-09",
+      "device": "Samsung Galaxy A05",
+      "android": "14",
+      "core_initial": "1.27.1",
+      "core_final": null,
+      "method": "Community USB method",
+      "source_type": "upstream_community_report",
+      "source": "https://github.com/bokiko/acurast-onboarding-fixes/blob/main/README.md",
+      "result": "online_reported_upstream",
+      "online_verified": false,
+      "evidence": [
+        "Upstream README reports Online"
+      ],
+      "issues": [],
+      "risk_notes": [
+        "Community report; not replicated by this fork"
+      ],
+      "last_observed": "2026-09"
+    },
+    {
+      "id": "samsung-a04-android14-upstream-2026-09",
+      "device": "Samsung Galaxy A04",
+      "android": "14",
+      "core_initial": "1.27.1",
+      "core_final": null,
+      "method": "Community USB method after stock restoration",
+      "source_type": "upstream_community_report",
+      "source": "https://github.com/bokiko/acurast-onboarding-fixes/blob/main/README.md",
+      "result": "online_reported_upstream",
+      "online_verified": false,
+      "evidence": [
+        "Upstream README reports Online after separate stock restoration; Knox remained tripped"
+      ],
+      "issues": [
+        {
+          "code": "stock_restoration_reported",
+          "symptom": "Upstream reports a stock restoration before successful onboarding",
+          "observed_action": "Original source performed stock restoration",
+          "outcome": "Online reported; Knox remained tripped"
+        }
+      ],
+      "risk_notes": [
+        "Do not recommend firmware restoration based on one report",
+        "Knox state can affect security and device functionality"
+      ],
+      "last_observed": "2026-09"
+    },
+    {
+      "id": "redminote13-android13-upstream-2026-09",
+      "device": "Xiaomi Redmi Note 13",
+      "android": "13",
+      "core_initial": "1.27.1",
+      "core_final": null,
+      "method": "Community USB method",
+      "source_type": "upstream_community_report",
+      "source": "https://github.com/bokiko/acurast-onboarding-fixes/blob/main/README.md",
+      "result": "online_reported_upstream",
+      "online_verified": false,
+      "evidence": [
+        "Upstream README reports Online after USB permission and account removal"
+      ],
+      "issues": [
+        {
+          "code": "usb_permission_accounts",
+          "symptom": "Permissions/accounts impeded setup in reported case",
+          "observed_action": "Resolved USB permission and account prerequisites",
+          "outcome": "Upstream reports Online"
+        }
+      ],
+      "risk_notes": [
+        "Back up account-synced data before account changes",
+        "Community report; not replicated by this fork"
+      ],
+      "last_observed": "2026-09"
+    },
+    {
+      "id": "s23ultra-android15-upstream-2026-09",
+      "device": "Samsung Galaxy S23 Ultra",
+      "android": "15",
+      "core_initial": "1.27.1",
+      "core_final": null,
+      "method": "Community USB method",
+      "source_type": "upstream_community_report",
+      "source": "https://github.com/bokiko/acurast-onboarding-fixes/blob/main/README.md",
+      "result": "owner_and_launch_online_unverified",
+      "online_verified": false,
+      "evidence": [
+        "Upstream README records Device Owner and pairing launch, without preserved Online confirmation"
+      ],
+      "issues": [],
+      "risk_notes": [
+        "Must not label as fully compatible or Online based on launch"
+      ],
+      "last_observed": "2026-09"
+    }
+  ]
+}
