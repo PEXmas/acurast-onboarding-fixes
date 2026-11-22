@@ -115,3 +115,8 @@ Community guide by [@bokiko](https://bokiko.io).
 [MIT license](LICENSE)
 
 <img src="https://capsule-render.vercel.app/api?type=waving&amp;color=gradient&amp;height=100&amp;section=footer" alt="Decorative wave footer" width="100%" />
+
+
+## Optional Windows MVP (experimental fork extension)
+
+This fork adds an [introductory Windows guide](INICIO_AQUI.md), non-destructive PowerShell release checks, local QR-file preparation, and read-only ADB diagnostics. These tools are **not official Acurast support**; they do not automate Device Owner, application enrollment, or factory reset. Do not commit pairing payloads, QR signatures, or wallet secrets. See [the guide](docs/GUIA_FORK.md) and [sanitized A52s field report](docs/CASO_A52S.md).
