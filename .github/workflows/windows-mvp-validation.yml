@@ -63,8 +63,8 @@ jobs:
           $previousOutput = @(& .\tools\Select-AcurastRelease.ps1 -Channel PreviousStable)
           $latestOutput | ForEach-Object { Write-Host $_ }
           $previousOutput | ForEach-Object { Write-Host $_ }
-          $latestLine = @($latestOutput | Where-Object { $_ -match '^Seleccionada: processor-\d+\.\d+\.\d+ })
-          $previousLine = @($previousOutput | Where-Object { $_ -match '^Seleccionada: processor-\d+\.\d+\.\d+ })
+          $latestLine = @($latestOutput | Where-Object { $_ -match '^Seleccionada: processor-[0-9]+[.][0-9]+[.][0-9]+' })
+          $previousLine = @($previousOutput | Where-Object { $_ -match '^Seleccionada: processor-[0-9]+[.][0-9]+[.][0-9]+' })
           if ($latestLine.Count -ne 1 -or $previousLine.Count -ne 1) { throw 'Release selection missing or malformed' }
           $latest = [version]($latestLine[0] -replace '^Seleccionada: processor-', '')
           $previous = [version]($previousLine[0] -replace '^Seleccionada: processor-', '')
