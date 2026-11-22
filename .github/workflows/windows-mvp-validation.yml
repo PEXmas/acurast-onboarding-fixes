@@ -55,8 +55,28 @@ jobs:
             Write-Host ("PASS: " + $script)
           }
 
+      - name: Check real Core release discovery on Windows (no download)
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $latestOutput = @(& .\tools\Select-AcurastRelease.ps1 -Channel LatestStable)
+          $previousOutput = @(& .\tools\Select-AcurastRelease.ps1 -Channel PreviousStable)
+          $latestOutput | ForEach-Object { Write-Host $_ }
+          $previousOutput | ForEach-Object { Write-Host $_ }
+          $latestLine = @($latestOutput | Where-Object { $_ -match '^Seleccionada: processor-\d+\.\d+\.\d+ })
+          $previousLine = @($previousOutput | Where-Object { $_ -match '^Seleccionada: processor-\d+\.\d+\.\d+ })
+          if ($latestLine.Count -ne 1 -or $previousLine.Count -ne 1) { throw 'Release selection missing or malformed' }
+          $latest = [version]($latestLine[0] -replace '^Seleccionada: processor-', '')
+          $previous = [version]($previousLine[0] -replace '^Seleccionada: processor-', '')
+          if ($latest -le $previous) { throw 'LatestStable should be newer than PreviousStable' }
+          if ($latestOutput -notcontains 'Solo consulta: sin descarga ni instalacion.' -or
+              $previousOutput -notcontains 'Solo consulta: sin descarga ni instalacion.') {
+            throw 'Version check did not confirm no-download mode'
+          }
+          Write-Host ('PASS: LatestStable=' + $latest + ', PreviousStable=' + $previous + '; no APK was downloaded.')
+
       - name: No phone operations in CI
         shell: pwsh
         run: |
-          Write-Host "Tests only parse PowerShell and validate public JSON."
-          Write-Host "No ADB commands, QR payload, wallet, installation or Device Owner changes are executed."
+          Write-Host "Only host-side PowerShell parsing, public JSON validation and official release metadata lookup."
+          Write-Host "No Android device, QR, wallet, APK installation or Device Owner changes are used."
