@@ -23,3 +23,7 @@ El script `tools/Private-QR-Notepad.ps1` crea, si hace falta, un directorio loca
 ## Pruebas pendientes
 
 Se necesita un ciclo de pruebas en Windows PowerShell 5.1, consultas a GitHub, validación de APK y pruebas con dispositivos dedicados antes de recomendar el procedimiento como estable. No publicar detalles de emparejamiento reales en issues o PR.
+
+## Compatibilidad e IA
+
+La compatibilidad está documentada por **casos, evidencia y procedencia**, no como una lista garantizada. Antes de sugerir un procedimiento con otro celular, la IA debe leer [AGENTS.md](../AGENTS.md), [COMPATIBILIDAD.md](COMPATIBILIDAD.md), y [casos.json](../compatibilidad/casos.json). Para nuevas pruebas usa [la plantilla](../compatibilidad/PLANTILLA_CASO.md) y ejecuta `python tools/validate_cases.py`. Registrar solamente observaciones anonimizadas; un estado verde no equivale a confirmación Online en Hub.
