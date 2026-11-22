@@ -39,3 +39,7 @@ Para diagnóstico de solo lectura (ADB):
 - Los scripts aún requieren pruebas integrales en Windows y con dispositivos de prueba.
 
 Documentación adicional: [guía del fork](docs/GUIA_FORK.md) y [caso A52s](docs/CASO_A52S.md).
+
+## ¿Qué teléfonos han sido probados?
+
+Consulta [el registro de compatibilidad](docs/COMPATIBILIDAD.md) y su [archivo para IA](compatibilidad/casos.json). Compara siempre modelo **y** versión de Android; hay reportes comunitarios y resultados propios con distintos niveles de evidencia. Para una IA, lee primero [AGENTS.md](AGENTS.md) y [este mensaje listo para copiar](docs/USAR_CON_IA.md). Para añadir otro equipo, utiliza [la plantilla anónima](compatibilidad/PLANTILLA_CASO.md). La lista no certifica compatibilidad.
