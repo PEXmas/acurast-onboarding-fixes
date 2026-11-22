@@ -16,3 +16,7 @@
 Evitar repetir `set-device-owner` si devuelve una excepción. Separar preparación, registro, inicio de Core y verificación en Hub. La actualización oficial puede resolver problemas de ejecutores, pero eso no identifica una causa única ni demuestra que todo el proceso esté completado.
 
 **Privacidad:** no almacenar direcciones, QR, payload, firmas, semillas o IDs completos en este documento.
+
+## Seguimiento por caso
+
+Este caso aparece también en [el registro estructurado](../compatibilidad/casos.json) con el estado `core_ui_green_online_unverified`. Las observaciones se refieren exclusivamente a una sesión guiada, no a compatibilidad general del modelo. No se ha confirmado el estado Online, trabajos ejecutados ni recompensas.
