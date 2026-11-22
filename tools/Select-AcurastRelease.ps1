@@ -15,7 +15,9 @@ $api='https://api.github.com/repos/Acurast/acurast-processor-update/releases?per
 $headers=@{Accept='application/vnd.github+json';'User-Agent'='Acurast-Windows-MVP';'X-GitHub-Api-Version'='2022-11-28'}
 $trustedSigner='ec70c2a4e072a0f586552a68357b23697c9d45f1e1257a8c4d29a25ac4982433'
 $expectedPackage='com.acurast.attested.executor.canary'
-$releases=@(Invoke-RestMethod -Method Get -Uri $api -Headers $headers -TimeoutSec 40)
+$releases=Invoke-RestMethod -Method Get -Uri $api -Headers $headers -TimeoutSec 40
+# Invoke-RestMethod returns a JSON array as a single array object in Windows PowerShell 5.1.
+# Pipe the array directly so Where-Object enumerates the individual release objects.
 $stable=@($releases | Where-Object {
   (-not $_.draft) -and (-not $_.prerelease) -and ([string]$_.tag_name -match '^processor-[0-9]+\.[0-9]+\.[0-9]+$')
 } | Sort-Object -Property @{Expression={[version]([regex]::Match([string]$_.tag_name,'[0-9]+\.[0-9]+\.[0-9]+').Value)}} -Descending)
