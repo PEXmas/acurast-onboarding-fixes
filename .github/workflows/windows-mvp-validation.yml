@@ -1,6 +1,9 @@
 name: Windows MVP checks
 
 on:
+  push:
+    branches:
+      - feature/windows-core-onboarding-mvp
   pull_request:
     paths:
       - "INICIAR.ps1"
