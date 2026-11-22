@@ -120,3 +120,8 @@ Community guide by [@bokiko](https://bokiko.io).
 ## Optional Windows MVP (experimental fork extension)
 
 This fork adds an [introductory Windows guide](INICIO_AQUI.md), non-destructive PowerShell release checks, local QR-file preparation, and read-only ADB diagnostics. These tools are **not official Acurast support**; they do not automate Device Owner, application enrollment, or factory reset. Do not commit pairing payloads, QR signatures, or wallet secrets. See [the guide](docs/GUIA_FORK.md) and [sanitized A52s field report](docs/CASO_A52S.md).
+
+
+## Evidence-based compatibility registry (fork)
+
+This fork includes an [AI-readable, source-labelled case registry](compatibilidad/casos.json), a [human-facing compatibility table](docs/COMPATIBILIDAD.md), and [AI usage instructions](docs/USAR_CON_IA.md). AI agents should read [AGENTS.md](AGENTS.md) before giving device recommendations. Source reports are **not** independently certified compatibility. New cases must be anonymized via [the case template](compatibilidad/PLANTILLA_CASO.md); validate with `python tools/validate_cases.py` and review in a draft PR. No pairing data or phone identifiers may be published.
