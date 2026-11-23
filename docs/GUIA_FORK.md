@@ -20,9 +20,14 @@ El script `tools/Private-QR-Notepad.ps1` crea, si hace falta, un directorio loca
 
 `tools/Select-AcurastRelease.ps1` ofrece `LatestStable` y `PreviousStable`. Puede consultar solo metadatos o descargar la APK para verificación **sin instalarla**. El certificado permitido se basa en la APK 1.27.1 verificada en el caso de prueba; un cambio legítimo de firmante requiere una nueva revisión manual.
 
-## Pruebas pendientes
+## Estado de las pruebas (noviembre de 2026)
 
-Se necesita un ciclo de pruebas en Windows PowerShell 5.1, consultas a GitHub, validación de APK y pruebas con dispositivos dedicados antes de recomendar el procedimiento como estable. No publicar detalles de emparejamiento reales en issues o PR.
+- **GitHub Actions:** pruebas en Windows PowerShell 5.1 de sintaxis, casos JSON y consulta de releases oficiales completadas.
+- **Windows real + Redmi Note 12S:** descarga y firma de APK estable Core 1.29.0 verificadas. El equipo bloqueó `adb install`, pero aceptó instalación manual desde Administrador de archivos después de comprobaciones de Seguridad Xiaomi.
+- **Android 14 / Redmi Note 12S:** helper con hashes coincidentes pasó `check` sintético y real, Device Owner obtuvo `Success`, Hub mostró conexión reciente y atestación, y el estado naranja de ejecutores pasó a verde al usar `Ajustes → Instalar executor`. [Informe de campo](CASO_REDMI_NOTE_12S.md).
+- **No verificado aún:** medición de trabajos, ACU, estabilidad prolongada, cleanup de los archivos privados si ADB desaparece, ni repetibilidad en otros modelos/firmware. El helper no autentica la firma de pairing del Hub.
+
+La prueba es individual y guiada, no constituye una certificación ni autoriza automatizar Device Owner, borrar datos o actualizar una granja. No publicar información real de pairing en issues/PR.
 
 ## Compatibilidad e IA
 

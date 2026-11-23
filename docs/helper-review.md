@@ -10,6 +10,10 @@ On September 12, 2026, the previous guarded source completed a check and launch 
 
 **That phone result does not validate the revised source in this PR.** It also does not prove eligibility, rewards, or compatibility with other Android/Core versions.
 
+## Subsequent fork-specific phone test — November 2026
+
+The September 2026 host-only validation table below is a **historical upstream snapshot**. After that date, this fork performed one guided Android 14 Redmi Note 12S session using `CoreProvision.java`, `check-payload.py` and `helper.zip` matching the published source/ZIP SHA-256 digests. On-phone synthetic and real-data **`check`** passed, the owner setup returned explicit Success, and one launch was accepted. The owner supplied Hub and phone screenshots with recent attested connection, populated Manager, and green Compute Status after manually using **Install executor**. [Anonymized case](CASO_REDMI_NOTE_12S.md). This is real runtime evidence for **that exact configuration**, but not independent audit of Hub, validation of Hub pairing signature, proof of jobs/rewards, or general Android compatibility.
+
 ## Revised implementation
 
 The [helper](../tools/CoreProvision.java) retains the typed transport and adds fixed redacted error codes, bounded reads, an explicit shell-UID/foreground-user gate, deterministic exact-signature selection, and failure status for every launch result except the observed result 0. Result 0 still proves only activity-start acceptance.

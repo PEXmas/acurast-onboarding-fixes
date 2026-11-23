@@ -8,7 +8,7 @@ Always select the intended device explicitly. Stop after a failed prerequisite i
 | --- | --- | --- |
 | No device in `adb devices -l` | Cable, USB port, debugging, or Core lockdown | Before onboarding, use a data cable and enable debugging. After pairing, inspect phone and Hub before assuming failure. |
 | `unauthorized` | Computer has not been authorized | Unlock phone and accept its USB debugging prompt. |
-| `INSTALL_FAILED_USER_RESTRICTED` | OS rejected installation | Inspect phone prompt. Xiaomi manual File Manager installation worked, but did not fix owner permissions. |
+| `INSTALL_FAILED_USER_RESTRICTED` | Android/vendor blocked `adb install`; this alone is not an APK signature failure | In one Redmi Note 12S/HyperOS case the **official verified APK** installed manually through File Manager after Xiaomi security inspection, even when ADB remained blocked. Do not disable Play Protect or force a dangerous-app warning. [Field record](CASO_REDMI_NOTE_12S.md). |
 | `INJECT_EVENTS` denied | Remote input restriction | On tested Xiaomi, enable extra USB debugging security setting on phone. |
 | `Calling identity is not authorized` from `dpm` | Management permission restriction | Extra Xiaomi USB security permission resolved our instance. This error is not proof of a Xiaomi cause on every phone. |
 | `already some accounts on the device` | Android rejects owner provisioning in current account state | Remove setup accounts through Settings, verify zero accounts, retry. |
@@ -22,6 +22,7 @@ Always select the intended device explicitly. Stop after a failed prerequisite i
 | Activity launch result `101` | Task is pinned in lock-task mode | Nothing will start until lock task is cleared. Inspect the pinned task before assuming Core is broken. |
 | `am force-stop` has no effect | Core is device owner | Expected. Ownership cannot be worked around; see [recovery boundaries](recovery.md). |
 | `pm clear` refused with `SecurityException` | Core is an active device admin | No verified ordinary ownership undo. Do not attempt to remove the admin to get around it. |
+| **Compute Status orange: `Executors not installed`** | Core may already be paired and recently connected, but the executor is not yet installed | If Core's own settings offer **`Install executor`**, inspect and use this local action with owner consent before upgrading, reinstalling or triggering a whole-farm update. On the Redmi Note 12S this turned Compute Status green/Active; subsequently verify heartbeat and actual jobs separately. [Field record](CASO_REDMI_NOTE_12S.md). |
 | USB vanishes during Core launch | Observed Core lockdown behavior | Inspect phone, read/accept disclaimer if shown, verify Hub status. |
 | Phone sits on the disclaimer screen | Pairing applied but is not complete | The owner must accept within the QR's validity window. An expired payload needs a fresh QR. |
 | Hub still offline | Pairing or connectivity may be incomplete | Check phone's actual message, internet, correct Hub wallet and QR expiry. Do not repeatedly provision blindly. |
@@ -61,6 +62,8 @@ A processor that is not yet paired can report a chain error stating it cannot pa
 Do not send tokens to the processor address as an onboarding fix. In our observation a working, paired processor on this network held no balance of its own at all, so an empty processor balance is normal rather than the fault. The error appears because an unpaired processor has no manager associated with it yet, and the calls it is attempting are not the one that carries the pairing.
 
 Check the Manager row. If it is not set, pairing is incomplete. If a manager is present, investigate the actual network/app error instead of assuming the same cause. Do not fund the processor to fix this onboarding symptom.
+
+Successful Device Owner, a launch accepted by Android, recent Hub connection, an installed executor, and actual rewards are **different evidence stages**. Record each separately. [Redmi Note 12S example](CASO_REDMI_NOTE_12S.md).
 
 The helper's transport check does not verify the QR signature, eligibility, network health, or reward status. Keep diagnostics limited to the failing stage. Never attach full `dumpsys account`, logcat, or a QR payload publicly without inspecting and redacting it.
 

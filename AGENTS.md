@@ -16,13 +16,16 @@ When answering questions about device support, also read:
 - `docs/COMPATIBILIDAD.md` for the public summary and caution notes;
 - `compatibilidad/casos.json` for structured, source-labelled case evidence;
 - `compatibilidad/PLANTILLA_CASO.md` when recording a new experiment;
-- `docs/USAR_CON_IA.md` for the copyable prompt.
+- `docs/USAR_CON_IA.md` for the copyable prompt;
+- `docs/CASO_REDMI_NOTE_12S.md` for the Xiaomi Android 14/HyperOS and Core 1.29.0 guided test, prerequisites, exact observed troubleshooting and evidence limits.
 
 Keep following the original `AI-ONBOARDING.md` and `docs/ai-assisted.md`: this index **does not authorize phone operations**.
 
-**Reason from evidence, not guesses:** match exact model and Android version, and treat firmware/Core differences as untested. `online_reported_upstream` means the original maintainer reported online, not that this fork reproduced it. `core_ui_green_online_unverified` means only the dedicated UI and green Compute Status were observed. `owner_and_launch_online_unverified` is not Online.
+**Reason from evidence, not guesses:** match exact model and Android version, and treat firmware/Core differences as untested. `online_reported_upstream` means the original maintainer reported online, not that this fork reproduced it. `core_ui_green_online_unverified` means only the dedicated UI and green Compute Status were observed. `owner_and_launch_online_unverified` is not Online. `hub_online_user_reported` is user-observed Hub attestation and recent connection, not an independent audit, jobs, rewards or a guarantee of long-term availability.
 
 **Practical guidance:** explain what is known, what is unknown, safety/backup risk and one least-risk next step. Prefer read-only checks and official updates. Stop when a privileged command fails. A `dpm set-device-owner` exception remains a failure even if Device Owner is subsequently visible; do not automatically retry, launch, flash or reset. A helper `check`, a launch-accepted message, and a green UI are not substitutes for evidence in Hub.
+
+**Case-specific advice:** Xiaomi `INSTALL_FAILED_USER_RESTRICTED` may block ADB even when the APK is verified; first inspect the phone warning and vendor permissions, never bypass signer verification or disable Play Protect as a generic fix. In the Redmi Note 12S case, **manual installation of the verified APK** worked. If Core already shows a Manager, Hub recent heartbeat/attestation, but `Executors not installed` is orange, check whether local Core **Settings → Install executor** exists *before* recommending APK reinstall, repeated pairing or whole-farm updates. This specific action turned the Redmi green; in the A52s case a separate update preceded the green state. Do not claim they share the same root cause. Installing executors is not proof of compute jobs or rewards. Device Owner, account removal and reset require explicit per-device authorization.
 
 **Privacy:** never request or publish QR/payload JSON, wallet addresses, pairing signatures, seeds, private keys, emails, phone identifiers (IMEI, serial, ADB ID), full system logs or uncensored screenshots. Use local private storage and only sanitized outcome summaries. New case records must identify provenance and uncertainty, must be reviewed before publication, and must never silently overwrite a failed attempt.
 

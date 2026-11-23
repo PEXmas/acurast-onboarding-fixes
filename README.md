@@ -119,7 +119,7 @@ Community guide by [@bokiko](https://bokiko.io).
 
 ## Optional Windows MVP (experimental fork extension)
 
-This fork adds an [introductory Windows guide](INICIO_AQUI.md), non-destructive PowerShell release checks, local QR-file preparation, and read-only ADB diagnostics. These tools are **not official Acurast support**; they do not automate Device Owner, application enrollment, or factory reset. Do not commit pairing payloads, QR signatures, or wallet secrets. See [the guide](docs/GUIA_FORK.md) and [sanitized A52s field report](docs/CASO_A52S.md).
+This fork adds an [introductory Windows guide](INICIO_AQUI.md), non-destructive PowerShell release checks, local QR-file preparation, and read-only ADB diagnostics. These tools are **not official Acurast support**; they do not automate Device Owner, application enrollment, or factory reset. Do not commit pairing payloads, QR signatures, or wallet secrets. See [the guide](docs/GUIA_FORK.md), [sanitized Redmi Note 12S camera-damaged Core 1.29.0 field report](docs/CASO_REDMI_NOTE_12S.md), and [A52s field report](docs/CASO_A52S.md). The Redmi owner showed recent attested Hub connectivity and green Compute Status after local executor installation; jobs and rewards were not verified.
 
 
 ## Evidence-based compatibility registry (fork)
