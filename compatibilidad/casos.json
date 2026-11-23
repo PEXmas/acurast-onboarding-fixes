@@ -3,6 +3,62 @@
   "explanation": "Anonymous case evidence for AI-assisted troubleshooting. Reports are not certifications. Online reporting from upstream is not independently verified by this fork.",
   "entries": [
     {
+      "id": "redminote12s-android14-hyperos-windows-2026-11",
+      "device": "Xiaomi Redmi Note 12S (2303ERA42L; damaged camera)",
+      "android": "14",
+      "core_initial": "1.29.0",
+      "core_final": "1.29.0",
+      "method": "Windows ADB + verified APK manual File Manager install + community CoreProvision helper via private Hub QR data",
+      "source_type": "guided_observation",
+      "source": "docs/CASO_REDMI_NOTE_12S.md",
+      "result": "hub_online_user_reported",
+      "online_verified": false,
+      "evidence": [
+        "Official Core 1.29.0 APK SHA-256, signer and package verified locally; install through Xiaomi File Manager; ADB confirmed versionCode 144",
+        "Revised helper Java, Python and ZIP matched published SHA-256 references; synthetic and real payload check completed on Android 14",
+        "Explicit Device Owner Success; subsequent dpm list-owners confirmed affiliated DeviceOwner on user 0",
+        "Single launch returned Activity start accepted (0), not proof of pairing alone",
+        "Owner supplied Hub Phones screenshot showing recent connection and attested Core 1.29.0 processor",
+        "Owner supplied on-phone screenshots showing configured Manager, recent heartbeat, attested and Compute Status green/Active after using Settings > Install executor",
+        "No independently verified on-chain jobs, ACU rewards or long-term uptime for this device"
+      ],
+      "issues": [
+        {
+          "code": "dpm_read_not_authorized",
+          "symptom": "dpm list-owners initially failed: Calling identity is not authorized",
+          "observed_action": "Reviewed Xiaomi USB security settings and account state, then repeated non-mutating check",
+          "outcome": "Later returned no owners before Device Owner setup; exact cause not isolated"
+        },
+        {
+          "code": "adb_install_user_restricted",
+          "symptom": "ADB INSTALL_FAILED_USER_RESTRICTED despite USB install and security debugging switches",
+          "observed_action": "Verified official APK copied to Downloads and manually installed with Xiaomi File Manager after on-phone security review",
+          "outcome": "Install succeeded; ADB confirmed Core 1.29.0 / versionCode 144"
+        },
+        {
+          "code": "accounts_and_vendor_permissions",
+          "symptom": "Initial Google account and temporary Xiaomi account/SIM requirement while configuring USB permissions",
+          "observed_action": "Owner removed both accounts after backups and before privileged Device Owner change",
+          "outcome": "User 0 only, no owners, device ready for subsequent authorized step"
+        },
+        {
+          "code": "executors_missing",
+          "symptom": "Hub had recent connection and attestation but Core Compute Status orange: Executors not installed",
+          "observed_action": "Owner tapped Settings > Install executor within Acurast Processor app",
+          "outcome": "Compute Status changed to green/Active; not evidence of jobs or rewards"
+        }
+      ],
+      "risk_notes": [
+        "User-observed recent Hub connection and attestation; no independent verification, jobs, rewards or long-term uptime",
+        "Android helper check does not validate cryptographic Hub pairing signature",
+        "Set-device-owner is potentially irreversible and requires specific authorized, backed-up preflight; never auto-run",
+        "Do not disable Play Protect, reflash, bypass warnings or repeat privileged failures based on this single case",
+        "Private QR file cleanup on phone after Core lockdown is unverified",
+        "Never publish QR, wallet, signatures, account, email, serial, IMEI or raw screenshots"
+      ],
+      "last_observed": "2026-11"
+    },
+    {
       "id": "a52s-android14-win-guided-2026-11",
       "device": "Samsung Galaxy A52s 5G (SM-A528B)",
       "android": "14",
