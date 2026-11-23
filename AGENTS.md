@@ -10,6 +10,10 @@
 - Keep the wave header/footer and unified-color badges, and preserve the simple browser-first README wording. Do not reintroduce Roadmap, Related Projects, or a template-driven section expansion. Never add clone/install commands to match an app template.
 
 
+## Scope: assisted enrollment, not production analytics
+
+This fork exists to help owners **enroll Acurast Core via USB/ADB instead of scanning a QR with the phone camera**, especially on dedicated phones following a factory reset. The owner still needs **fresh, signed QR data from Acurast Hub** stored privately; never imply pairing is possible without Hub authorization. This is not a factory-reset automation or a bypass of device policy. Read [docs/ALCANCE.md](docs/ALCANCE.md) before giving guidance. **Do not add ACU output, rewards, earnings, profitability, performance benchmarking, epoch tracking or fleet monitoring to this fork.** Limit case reports to onboarding prerequisites, failures, resolutions, Manager/Hub state and initial executor readiness.
+
 ## Evidence-aware compatibility extension (this fork)
 
 When answering questions about device support, also read:
@@ -25,7 +29,7 @@ Keep following the original `AI-ONBOARDING.md` and `docs/ai-assisted.md`: this i
 
 **Practical guidance:** explain what is known, what is unknown, safety/backup risk and one least-risk next step. Prefer read-only checks and official updates. Stop when a privileged command fails. A `dpm set-device-owner` exception remains a failure even if Device Owner is subsequently visible; do not automatically retry, launch, flash or reset. A helper `check`, a launch-accepted message, and a green UI are not substitutes for evidence in Hub.
 
-**Case-specific advice:** Xiaomi `INSTALL_FAILED_USER_RESTRICTED` may block ADB even when the APK is verified; first inspect the phone warning and vendor permissions, never bypass signer verification or disable Play Protect as a generic fix. In the Redmi Note 12S case, **manual installation of the verified APK** worked. If Core already shows a Manager, Hub recent heartbeat/attestation, but `Executors not installed` is orange, check whether local Core **Settings → Install executor** exists *before* recommending APK reinstall, repeated pairing or whole-farm updates. This specific action turned the Redmi green; in the A52s case a separate update preceded the green state. Do not claim they share the same root cause. Installing executors is not proof of compute jobs or rewards. Device Owner, account removal and reset require explicit per-device authorization.
+**Case-specific advice:** Xiaomi `INSTALL_FAILED_USER_RESTRICTED` may block ADB even when the APK is verified; first inspect the phone warning and vendor permissions, never bypass signer verification or disable Play Protect as a generic fix. In the Redmi Note 12S case, **manual installation of the verified APK** worked. If Core already shows a Manager, Hub recent heartbeat/attestation, but `Executors not installed` is orange, check whether local Core **Settings → Install executor** exists *before* recommending APK reinstall, repeated pairing or whole-farm updates. This specific action turned the Redmi green; in the A52s case a separate update preceded the green state. Do not claim they share the same root cause. Executor readiness is recorded only to close onboarding, not to analyze computational output. Device Owner, account removal and reset require explicit per-device authorization.
 
 **Privacy:** never request or publish QR/payload JSON, wallet addresses, pairing signatures, seeds, private keys, emails, phone identifiers (IMEI, serial, ADB ID), full system logs or uncensored screenshots. Use local private storage and only sanitized outcome summaries. New case records must identify provenance and uncertainty, must be reviewed before publication, and must never silently overwrite a failed attempt.
 

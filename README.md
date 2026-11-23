@@ -117,9 +117,13 @@ Community guide by [@bokiko](https://bokiko.io).
 <img src="https://capsule-render.vercel.app/api?type=waving&amp;color=gradient&amp;height=100&amp;section=footer" alt="Decorative wave footer" width="100%" />
 
 
+## Scope of this fork: USB onboarding without scanning the QR
+
+This fork focuses **only on guided Acurast Core enrollment through USB/ADB**, especially for preparing a spare phone after a factory reset when camera-based QR scanning cannot be used. The **Hub-issued QR data is still required**: the owner privately uses **Copy QR Data** instead of scanning with the phone's camera. It is **not** a QR-authentication bypass, auto-reset tool or ACU production tracker. [Scope and safety limits (Spanish)](docs/ALCANCE.md).
+
 ## Optional Windows MVP (experimental fork extension)
 
-This fork adds an [introductory Windows guide](INICIO_AQUI.md), non-destructive PowerShell release checks, local QR-file preparation, and read-only ADB diagnostics. These tools are **not official Acurast support**; they do not automate Device Owner, application enrollment, or factory reset. Do not commit pairing payloads, QR signatures, or wallet secrets. See [the guide](docs/GUIA_FORK.md), [sanitized Redmi Note 12S camera-damaged Core 1.29.0 field report](docs/CASO_REDMI_NOTE_12S.md), and [A52s field report](docs/CASO_A52S.md). The Redmi owner showed recent attested Hub connectivity and green Compute Status after local executor installation; jobs and rewards were not verified.
+This fork adds an [introductory Windows guide](INICIO_AQUI.md), non-destructive PowerShell release checks, local QR-file preparation, and read-only ADB diagnostics. These tools are **not official Acurast support**; they do not automate Device Owner, application enrollment, or factory reset. Do not commit pairing payloads, QR signatures, or wallet secrets. See [the guide](docs/GUIA_FORK.md), [sanitized Redmi Note 12S camera-damaged Core 1.29.0 field report](docs/CASO_REDMI_NOTE_12S.md), and [A52s field report](docs/CASO_A52S.md). The Redmi owner showed recent attested Hub connectivity and green Compute Status after local executor installation; this fork does not measure processor output.
 
 
 ## Evidence-based compatibility registry (fork)

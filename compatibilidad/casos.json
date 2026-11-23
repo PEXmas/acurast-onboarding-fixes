@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "explanation": "Anonymous case evidence for AI-assisted troubleshooting. Reports are not certifications. Online reporting from upstream is not independently verified by this fork.",
+  "explanation": "Anonymous field evidence limited to guided Acurast Core onboarding via USB instead of scanning the camera QR (fresh signed Hub pairing data remains required). No ACU or production analytics. Reports are not compatibility certifications.",
   "entries": [
     {
       "id": "redminote12s-android14-hyperos-windows-2026-11",
@@ -19,8 +19,7 @@
         "Explicit Device Owner Success; subsequent dpm list-owners confirmed affiliated DeviceOwner on user 0",
         "Single launch returned Activity start accepted (0), not proof of pairing alone",
         "Owner supplied Hub Phones screenshot showing recent connection and attested Core 1.29.0 processor",
-        "Owner supplied on-phone screenshots showing configured Manager, recent heartbeat, attested and Compute Status green/Active after using Settings > Install executor",
-        "No independently verified on-chain jobs, ACU rewards or long-term uptime for this device"
+        "Owner supplied on-phone screenshots showing configured Manager, recent heartbeat, attested and Compute Status green/Active after using Settings > Install executor"
       ],
       "issues": [
         {
@@ -45,11 +44,10 @@
           "code": "executors_missing",
           "symptom": "Hub had recent connection and attestation but Core Compute Status orange: Executors not installed",
           "observed_action": "Owner tapped Settings > Install executor within Acurast Processor app",
-          "outcome": "Compute Status changed to green/Active; not evidence of jobs or rewards"
+          "outcome": "Compute Status changed to green/Active; initial executor readiness observed"
         }
       ],
       "risk_notes": [
-        "User-observed recent Hub connection and attestation; no independent verification, jobs, rewards or long-term uptime",
         "Android helper check does not validate cryptographic Hub pairing signature",
         "Set-device-owner is potentially irreversible and requires specific authorized, backed-up preflight; never auto-run",
         "Do not disable Play Protect, reflash, bypass warnings or repeat privileged failures based on this single case",
@@ -108,7 +106,7 @@
       ],
       "risk_notes": [
         "Device Owner command ended in an exception; avoid treating as routine success",
-        "Online, compute jobs and rewards are unverified"
+        "Hub Online was not verified in that session"
       ],
       "last_observed": "2026-11"
     },

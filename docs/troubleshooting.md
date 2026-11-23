@@ -22,7 +22,7 @@ Always select the intended device explicitly. Stop after a failed prerequisite i
 | Activity launch result `101` | Task is pinned in lock-task mode | Nothing will start until lock task is cleared. Inspect the pinned task before assuming Core is broken. |
 | `am force-stop` has no effect | Core is device owner | Expected. Ownership cannot be worked around; see [recovery boundaries](recovery.md). |
 | `pm clear` refused with `SecurityException` | Core is an active device admin | No verified ordinary ownership undo. Do not attempt to remove the admin to get around it. |
-| **Compute Status orange: `Executors not installed`** | Core may already be paired and recently connected, but the executor is not yet installed | If Core's own settings offer **`Install executor`**, inspect and use this local action with owner consent before upgrading, reinstalling or triggering a whole-farm update. On the Redmi Note 12S this turned Compute Status green/Active; subsequently verify heartbeat and actual jobs separately. [Field record](CASO_REDMI_NOTE_12S.md). |
+| **Compute Status orange: `Executors not installed`** | Core may already be paired and recently connected, but the executor is not yet installed | If Core's own settings offer **`Install executor`**, inspect and use this local action with owner consent before upgrading, reinstalling or triggering a whole-farm update. On the Redmi Note 12S this turned Compute Status green/Active; subsequently verify the Manager and recent Hub connection. [Field record](CASO_REDMI_NOTE_12S.md). |
 | USB vanishes during Core launch | Observed Core lockdown behavior | Inspect phone, read/accept disclaimer if shown, verify Hub status. |
 | Phone sits on the disclaimer screen | Pairing applied but is not complete | The owner must accept within the QR's validity window. An expired payload needs a fresh QR. |
 | Hub still offline | Pairing or connectivity may be incomplete | Check phone's actual message, internet, correct Hub wallet and QR expiry. Do not repeatedly provision blindly. |
@@ -63,7 +63,7 @@ Do not send tokens to the processor address as an onboarding fix. In our observa
 
 Check the Manager row. If it is not set, pairing is incomplete. If a manager is present, investigate the actual network/app error instead of assuming the same cause. Do not fund the processor to fix this onboarding symptom.
 
-Successful Device Owner, a launch accepted by Android, recent Hub connection, an installed executor, and actual rewards are **different evidence stages**. Record each separately. [Redmi Note 12S example](CASO_REDMI_NOTE_12S.md).
+Successful Device Owner, a launch accepted by Android, recent Hub connection, an installed executor, are **different enrollment evidence stages**. Record each separately. [Redmi Note 12S example](CASO_REDMI_NOTE_12S.md).
 
 The helper's transport check does not verify the QR signature, eligibility, network health, or reward status. Keep diagnostics limited to the failing stage. Never attach full `dumpsys account`, logcat, or a QR payload publicly without inspecting and redacting it.
 

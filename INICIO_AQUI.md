@@ -1,6 +1,6 @@
 # Acurast Core: asistente opcional para Windows (MVP)
 
-> **Experimental, no oficial.** No hay certificación de Acurast ni garantía de compatibilidad con nuevos dispositivos o nuevas versiones de Android.
+> **Experimental, no oficial.** Este proyecto se centra exclusivamente en **enrolar Core por USB sin escanear el QR con cámara**, especialmente al preparar un equipo dedicado después de restablecerlo. **Sí se necesitan datos vigentes de Copy QR Data obtenidos desde Hub.** No mide producción, ACU, ingresos ni rendimiento. [Alcance detallado](docs/ALCANCE.md). No hay certificación de Acurast ni garantía de compatibilidad con nuevos dispositivos o nuevas versiones de Android.
 
 Este fork conserva el procedimiento comunitario original y añade herramientas **no destructivas** para Windows PowerShell 5.1. No se ejecutan `adb install`, `dpm set-device-owner`, `CoreProvision launch`, `factory reset` ni acciones sobre la wallet automáticamente.
 
@@ -38,7 +38,7 @@ Para diagnóstico de solo lectura (ADB):
 - No uses la versión estable anterior sin comprobar su compatibilidad con el procedimiento vigente.
 - Los scripts aún requieren pruebas integrales en Windows y con dispositivos de prueba.
 
-Documentación adicional: [guía del fork](docs/GUIA_FORK.md), [caso Redmi Note 12S sin cámara](docs/CASO_REDMI_NOTE_12S.md) y [caso A52s](docs/CASO_A52S.md). El Redmi documenta una sesión exitosa de vinculación en Hub y activación local de ejecutores; **el menú Windows no automatiza enrolamiento**, y no se han verificado recompensas ni trabajos.
+Documentación adicional: [guía del fork](docs/GUIA_FORK.md), [caso Redmi Note 12S sin cámara](docs/CASO_REDMI_NOTE_12S.md) y [caso A52s](docs/CASO_A52S.md). El Redmi documenta una sesión exitosa de vinculación en Hub y activación local de ejecutores; **el menú Windows no automatiza enrolamiento**, y el propósito del fork termina al verificar el enrolamiento, el vínculo en Hub y, si procede, los ejecutores.
 
 ## ¿Qué teléfonos han sido probados?
 

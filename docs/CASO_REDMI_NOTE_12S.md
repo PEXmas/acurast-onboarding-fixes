@@ -10,7 +10,7 @@
 - **Core:** `com.acurast.attested.executor.canary`, versión **1.29.0**, código **144**. APK oficial comprobada por SHA-256 publicado, firma del APK y paquete esperado.
 - **Emparejamiento:** `dpm set-device-owner` devolvió **Success** y `dpm list-owners` confirmó `DeviceOwner,Affiliated` en usuario 0; el helper devolvió `Activity start accepted (0)`.
 - **Evidencia posterior:** captura facilitada por el propietario de **Hub Phones** con Core 1.29.0, atestación y **última conexión reciente**; pantalla Core con **Manager asignado**, heartbeat reciente, atestación y Compute Status verde **Activo** tras seleccionar **Ajustes → Instalar executor**.
-- **Clasificación:** `hub_online_user_reported` (`online_verified=false`): conexión reciente/atestación y estado activo **observados en capturas del usuario**, no auditoría independiente. **No hay demostración de trabajos ejecutados, recompensas ACU ni disponibilidad prolongada.**
+- **Clasificación:** `hub_online_user_reported` (`online_verified=false`): conexión reciente/atestación y estado activo **observados en capturas del usuario**, no auditoría independiente. Esta observación documenta el **enrolamiento y su comprobación inicial**, no la producción del equipo.
 
 ## Secuencia y puntos que cambiaron el resultado
 
@@ -31,16 +31,16 @@
 
 ## Guía de interpretación para IA
 
-1. **No mezclar seis niveles de éxito:** (a) APK íntegra/instalada, (b) Device Owner confirmado, (c) launch aceptado, (d) Hub con conexión/atestación, (e) ejecutores activos, (f) trabajos/recompensas. Registrar cada puerta y su evidencia.
+1. **Separar las puertas del enrolamiento:** (a) APK verificada/instalada, (b) Device Owner confirmado, (c) launch aceptado, (d) Manager y conexión/atestación en Hub, (e) executor listo si aplica. No interpretar una etapa como confirmación automática de la siguiente.
 2. **Distinguir el caso Redmi del A52s:** en el A52s el verde ocurrió después de una actualización; **en este Redmi ocurrió al usar la acción local `Instalar executor`**, sin actualización de APK observada.
 3. **No saltar al paso irreversible:** revisar usuario/perfiles, cuentas, firma/paquete de APK, QR vigente, `check` y consentimiento específico. Device Owner puede requerir restablecimiento para recuperar el teléfono. No flashear, desbloquear bootloader, eliminar datos ni manipular un owner ajeno.
 4. **Asistir un paso a la vez:** en errores de instalación USB, revisar el mensaje del sistema antes de repetir. Una instalación manual solo es apropiada con origen y firma verificados y sin alertas de seguridad graves.
 5. **QR protegido:** guardar `Copy QR Data` solo en un archivo local restringido; verificar tiempo local y vencimiento real de Hub. Nunca poner el contenido en mensajes, Git, logs o capturas. El helper no verifica la firma criptográfica de pairing.
-6. **Estado final proporcional:** Hub reciente + attestation + Manager + Compute Active son evidencia positiva de vínculo y entorno listo, pero **no prueban jobs ni ACU**. Monitorear estabilidad y rendimiento después.
+6. **Cierre del objetivo:** Manager asociado, conexión reciente y atestación en Hub respaldan el enrolamiento; el estado de executor es una comprobación inicial adicional. No ampliar este caso hacia métricas de producción.
 
 ## Pendientes y límites
 
-- No se han auditado de manera independiente los datos de Hub ni probado ingresos/jobs/estabilidad prolongada.
+- No se auditó de manera independiente Hub; el registro describe la vinculación y estado inicial observados por el propietario, no un seguimiento operativo prolongado.
 - No se han probado Core 1.30 RC, otras versiones de HyperOS, Xiaomi sin SIM o con una cuenta Xiaomi permanentemente conectada.
 - La eliminación posterior de las copias privadas de `payload.json` en el teléfono **no está confirmada** tras entrar en modo dedicado. Si ADB no está disponible, registrar ese límite en lugar de intentar cambios peligrosos.
 - La cámara dañada no impidió este flujo USB, pero su éxito no garantiza compatibilidad con otros equipos.
