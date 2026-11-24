@@ -96,8 +96,7 @@ Recorded in September 2026 using Core 1.27.1 and the community USB method.
 On the S23 Ultra running Android 15, we recorded device ownership and the
 pairing launch, but did not preserve online confirmation.
 
-These are individual phone results. The latest helper changes have passed
-computer tests and still need a full phone test.
+These rows are **historical upstream reports**, not universal compatibility guarantees. Later, this fork's revised helper was tested in two owner-guided Android 14 sessions (Redmi Note 12S and Galaxy A04 SM-A045M), with **official Hub recent connection/attestation shown for the Redmi only**. See the [field decision playbook](docs/FIELD_PLAYBOOK.md).
 [What was tested](docs/helper-review.md) · [Field notes](docs/sources.md)
 
 For the standard welcome-screen QR method, use
@@ -123,9 +122,9 @@ This fork focuses **only on guided Acurast Core enrollment through USB/ADB**, es
 
 ## Optional Windows MVP (experimental fork extension)
 
-This fork adds an [introductory Windows guide](INICIO_AQUI.md), non-destructive PowerShell release checks, local QR-file preparation, and read-only ADB diagnostics. These tools are **not official Acurast support**; they do not automate Device Owner, application enrollment, or factory reset. Do not commit pairing payloads, QR signatures, or wallet secrets. See [the guide](docs/GUIA_FORK.md), [sanitized Redmi Note 12S camera-damaged Core 1.29.0 field report](docs/CASO_REDMI_NOTE_12S.md), , [Samsung Galaxy A04 SM-A045M Knox 1 user-reported Core setup](docs/CASE_SAMSUNG_A04_SM_A045M.md), and [A52s field report](docs/CASO_A52S.md). The Redmi owner showed recent attested Hub connectivity and green Compute Status after local executor installation; this fork does not measure processor output.
+This fork adds an [introductory Windows guide](INICIO_AQUI.md), non-destructive PowerShell release checks, local QR-file preparation, and read-only ADB diagnostics. These tools are **not official Acurast support**; they do not automate Device Owner, application enrollment, or factory reset. Do not commit pairing payloads, QR signatures, or wallet secrets. See the [AI field playbook](docs/FIELD_PLAYBOOK.md), [English Redmi Note 12S case](docs/CASE_REDMI_NOTE_12S.md), [Spanish Redmi case](docs/CASO_REDMI_NOTE_12S.md), [Samsung Galaxy A04 SM-A045M Knox 1 case](docs/CASE_SAMSUNG_A04_SM_A045M.md), and [A52s case](docs/CASO_A52S.md). The Redmi owner showed recent attested Hub connectivity and green Compute Status after local executor installation; this fork does not measure processor output.
 
 
 ## Evidence-based compatibility registry (fork)
 
-This fork includes an [AI-readable, source-labelled case registry](compatibilidad/casos.json), a [human-facing compatibility table](docs/COMPATIBILIDAD.md), and [AI usage instructions](docs/USAR_CON_IA.md). AI agents should read [AGENTS.md](AGENTS.md) before giving device recommendations. Source reports are **not** independently certified compatibility. New cases must be anonymized via [the case template](compatibilidad/PLANTILLA_CASO.md); validate with `python tools/validate_cases.py` and review in a draft PR. No pairing data or phone identifiers may be published.
+This fork includes an [AI-readable, source-labelled case registry](compatibilidad/casos.json), a [human-facing compatibility table](docs/COMPATIBILIDAD.md), and [AI usage instructions](docs/USAR_CON_IA.md). AI agents should read [AGENTS.md](AGENTS.md) and [the field decision playbook](docs/FIELD_PLAYBOOK.md) before giving device recommendations. Source reports are **not** independently certified compatibility. New cases must be anonymized via [the case template](compatibilidad/PLANTILLA_CASO.md); validate with `python tools/validate_cases.py` and review in a draft PR. No pairing data or phone identifiers may be published.

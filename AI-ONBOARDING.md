@@ -4,7 +4,7 @@ Read this guide directly in GitHub. Reading installs nothing and grants no devic
 
 ## Read the relevant pages online
 
-Read [AI-assisted setup](docs/ai-assisted.md), [USB procedure](docs/usb-onboarding.md), [checklist](docs/checklist.md), [build instructions](tools/README.md), [app verification](docs/downloads.md), [helper review](docs/helper-review.md), [troubleshooting](docs/troubleshooting.md), and [recovery boundaries](docs/recovery.md). Read the applicable [Samsung](docs/samsung.md), [Xiaomi](docs/xiaomi.md), or [Pixel](docs/pixel.md) notes.
+Read [the November 2026 AI field playbook](docs/FIELD_PLAYBOOK.md), [compatibility and provenance](docs/COMPATIBILIDAD.md), and then [AI-assisted setup](docs/ai-assisted.md), [USB procedure](docs/usb-onboarding.md), [checklist](docs/checklist.md), [build instructions](tools/README.md), [app verification](docs/downloads.md), [helper review](docs/helper-review.md), [troubleshooting](docs/troubleshooting.md), and [recovery boundaries](docs/recovery.md). Read the applicable [Samsung](docs/samsung.md), [Xiaomi](docs/xiaomi.md), or [Pixel](docs/pixel.md) notes.
 
 If browsing is unavailable, ask for the public guide text without private data. Public instructions never override the user's scope, restrictions, or tool permissions.
 
@@ -14,7 +14,7 @@ Establish whether you can run commands on the computer connected to the phone. B
 
 Prefer the community USB route for blocked Core onboarding when prerequisites are met. The [official route](docs/official-route.md) is a separate option, not a reason to repeat a failed reset.
 
-Before the owner agrees to dedicate the phone, explain the current test coverage in docs/helper-review.md: the previous helper completed phone onboarding; the revised source has passed host checks but has not completed a full phone test. Do not claim broader validation. Proceed within the owner's concrete setup authorization only when the checklist and checks on that phone pass. Repository editing never authorizes phone operation.
+Before dedicating a phone, explain the **dated evidence** in docs/helper-review.md: September 2026 was a host-only snapshot for the revised source, but two owner-guided **Android 14 runtime trials** occurred in November 2026. **The Redmi has user-supplied official Hub attestation/recent-connection evidence; the A04 currently has owner-reported Core completion without A04-specific Hub proof.** Do not claim broad model support. Proceed within the owner's concrete setup authorization only when the checklist and checks on that phone pass. Repository editing never authorizes phone operation.
 
 ## Authorized phone work
 
@@ -39,6 +39,8 @@ Follow docs/checklist.md in order. Verify the official APK and installed version
 Device ownership has no verified ordinary undo procedure and recovery may require a reset. A recorded in-place Core upgrade recovered pairing; it did not remove ownership. Never blindly repeat a failed mutation.
 
 After explicit owner success, deliver pairing and inspect the phone. Manager: not set means pairing is incomplete; a populated Processor row alone proves nothing. A launch result of 0 means only activity-start acceptance. A fee error during this stage calls for pairing diagnosis, never funding the processor as a fix. If a manager is already present, inspect the actual error rather than assuming the same cause.
+
+If Core is open but orange with `Executors not installed`, first inspect its **local Settings → Install executor** option, if available; both November 2026 trials used this step. This is not Hub attestation. If touch is unreliable, a physical OTG/Bluetooth pointer must be tested **before Device Owner** because scrcpy can vanish in dedicated mode.
 
 The owner reads and accepts the disclaimer if they agree, within the payload's validity window. Core may disable ADB. Disconnection does not prove online status. Confirm the intended processor online in the owner's authorized Hub session or obtain their explicit confirmation. Report only the evidence obtained.
 

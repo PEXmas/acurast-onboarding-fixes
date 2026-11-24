@@ -20,6 +20,8 @@ When answering questions about device support, also read:
 - `docs/COMPATIBILIDAD.md` for the public summary and caution notes;
 - `compatibilidad/casos.json` for structured, source-labelled case evidence;
 - `compatibilidad/PLANTILLA_CASO.md` when recording a new experiment;
+- `docs/FIELD_PLAYBOOK.md` for evidence-driven decision stages, Android symptoms and stop conditions;
+- `docs/CASE_REDMI_NOTE_12S.md` for an English-language Redmi case companion;
 - `docs/USAR_CON_IA.md` for the copyable prompt;
 - `docs/CASO_REDMI_NOTE_12S.md` for the Xiaomi Android 14/HyperOS and Core 1.29.0 guided test, prerequisites, exact observed troubleshooting and evidence limits;
 - `docs/CASE_SAMSUNG_A04_SM_A045M.md` for the Samsung Android 14, Knox bit 1 guided USB trial with Device Owner success, user-reported Core enrollment, and **Hub attestation still unverified**.
@@ -28,7 +30,7 @@ Keep following the original `AI-ONBOARDING.md` and `docs/ai-assisted.md`: this i
 
 **Reason from evidence, not guesses:** match exact model and Android version, and treat firmware/Core differences as untested. `online_reported_upstream` means the original maintainer reported online, not that this fork reproduced it. `core_ui_green_online_unverified` means only the dedicated UI and green Compute Status were observed. `owner_and_launch_online_unverified` is not Online. `hub_online_user_reported` is user-observed Hub attestation and recent connection, not an independent audit, jobs, rewards or a guarantee of long-term availability.
 
-**Practical guidance:** explain what is known, what is unknown, safety/backup risk and one least-risk next step. Prefer read-only checks and official updates. Stop when a privileged command fails. A `dpm set-device-owner` exception remains a failure even if Device Owner is subsequently visible; do not automatically retry, launch, flash or reset. A helper `check`, a launch-accepted message, and a green UI are not substitutes for evidence in Hub.
+**Practical guidance:** follow [the decision playbook](docs/FIELD_PLAYBOOK.md). Never attribute a local dashboard screenshot to the wrong device: the latest local-dashboard screenshot belongs to the previously identified **Redmi**, not verified A04 Hub Phones evidence. Explain what is known, what is unknown, safety/backup risk and one least-risk next step. Prefer read-only checks and official updates. Stop when a privileged command fails. A `dpm set-device-owner` exception remains a failure even if Device Owner is subsequently visible; do not automatically retry, launch, flash or reset. A helper `check`, a launch-accepted message, and a green UI are not substitutes for evidence in Hub.
 
 **Case-specific advice:** Xiaomi `INSTALL_FAILED_USER_RESTRICTED` may block ADB even when the APK is verified; first inspect the phone warning and vendor permissions, never bypass signer verification or disable Play Protect as a generic fix. In the Redmi Note 12S case, **manual installation of the verified APK** worked. If Core already shows a Manager, Hub recent heartbeat/attestation, but `Executors not installed` is orange, check whether local Core **Settings → Install executor** exists *before* recommending APK reinstall, repeated pairing or whole-farm updates. This specific action turned the Redmi green; in the A52s case a separate update preceded the green state. Do not claim they share the same root cause. Executor readiness is recorded only to close onboarding, not to analyze computational output. Device Owner, account removal and reset require explicit per-device authorization.
 

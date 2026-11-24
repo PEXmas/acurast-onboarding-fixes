@@ -2,7 +2,7 @@
 
 Read this page alongside the [USB procedure](usb-onboarding.md). Reading installs nothing. An authorized setup may obtain the [pinned toolchain and helper](../tools/README.md); missing tools are a prerequisite to resolve, not permission to improvise.
 
-The [test record](helper-review.md#release-validation) distinguishes earlier phone results from the revised helper's computer tests. Explain that difference before the owner authorizes setup.
+The [dated test record](helper-review.md) distinguishes September 2026 host-only evidence from the later **November 2026 guided Android 14 runtime trials** of the revised helper. See [field decision playbook](FIELD_PLAYBOOK.md) for model-specific evidence and risks.
 
 ## Rule 1 — install 1.27.1 or newer
 
@@ -31,12 +31,13 @@ That does not mean every pairing failure requires a reset: the recorded upgrade 
 | Private file | Fresh export from intended Hub; strict local validator passes | Re-export; never edit signed fields |
 | Time and expiry | Phone time sensible; actual Hub validity leaves time for acceptance | Refresh data |
 | Helper | On-phone check passes with all five fields and launch interface verified | Stop; no weakened checks |
+| Physical UI control | Functional touchscreen **or** independently tested OTG/Bluetooth input when touch is unreliable; owner can consent even if scrcpy disconnects | Stop before irreversible Device Owner |
 
 ## Gate A — the last reversible point
 
 Immediately before ownership, re-check the target, foreground user, account/profile/owner state, installed Core version, that Core is not running, and payload validity. The staged bytes must still match the checked local file. Re-run the on-phone check. Confirm the owner is present for the disclaimer and understands potential reset recovery.
 
-Confirm the owner understands the current test coverage and authorizes this phone's setup. A successful computer build does not replace the checks on the connected phone.
+Confirm the owner understands the current test coverage and authorizes this phone's setup. **Knox bit 1 is not a standalone proof of eligibility or failure:** one SM-A045M advanced into Core, but its Hub attestation remains unverified. A successful computer build does not replace the checks on the connected phone.
 
 ## Gate B — did the pairing actually apply?
 
@@ -48,7 +49,7 @@ The helper accepts only launch result 0; other results stop for inspection. Even
 
 ## Gate C — is it online?
 
-The owner must accept within the actual Hub validity window. Then verify the intended processor online in the intended Hub wallet, either directly in an authorized session or through explicit owner confirmation.
+The owner must accept within the actual Hub validity window. Then verify the **intended exact device** in official Hub Phones, either directly in an authorized session or by owner confirmation. A local monitoring dashboard or Core green screen is not equivalent to official Hub evidence. If `Executors not installed` is orange, inspect the **in-app Install executor** action and recheck its result separately.
 
 ADB disconnection during lockdown does not prove success or failure. Report the evidence obtained. Remove temporary pairing files where accessible, verify removal, and identify any copy whose deletion could not be confirmed.
 

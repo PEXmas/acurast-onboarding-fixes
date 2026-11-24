@@ -4,13 +4,13 @@ Connect your spare phone to your computer with a USB data cable.
 Your assistant handles the computer steps; you handle taps, passwords,
 and wallet approvals.
 
-Core will dedicate this phone to Acurast. Back up anything you want to keep.
+Core will dedicate this phone to Acurast. Back up anything you want to keep. If touch is unreliable, test a standalone OTG/Bluetooth input **before** owner registration; scrcpy can disconnect during Core lockdown.
 Returning it to normal use may require a factory reset.
 
 ## 1. Open the assistant you use
 
 Use an assistant that can run commands on the computer connected to your
-phone. The published build steps currently cover Apple Silicon Macs.
+phone. The documented clean build recipe covers Apple Silicon Macs; this fork also records Windows PowerShell and two guided Android 14 runtime trials. See [dated tests](helper-review.md) and the [AI playbook](FIELD_PLAYBOOK.md).
 
 If your assistant only works in a browser, it can explain the
 [manual USB steps](usb-onboarding.md) while you run them yourself.
@@ -77,6 +77,8 @@ Tell the assistant:
 
 > Stop repeating that step. Check the troubleshooting page and tell me
 > what went wrong and what to do next.
+
+If Core shows orange `Executors not installed` after setup, inspect **Core Settings → Install executor** first where offered, and verify the specific device in official **Hub Phones**. A different processor's local-dashboard activity cannot prove Hub status.
 
 An installed app or a lost USB connection does not mean setup is complete.
 [Find your error](troubleshooting.md) · [What has been tested](helper-review.md)
