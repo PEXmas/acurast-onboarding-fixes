@@ -10,6 +10,14 @@ On September 12, 2026, the previous guarded source completed a check and launch 
 
 **That phone result does not validate the revised source in this PR.** It also does not prove eligibility, rewards, or compatibility with other Android/Core versions.
 
+## Subsequent fork-specific phone test — November 2026
+
+The September 2026 host-only validation table below is a **historical upstream snapshot**. After that date, this fork performed one guided Android 14 Redmi Note 12S session using `CoreProvision.java`, `check-payload.py` and `helper.zip` matching the published source/ZIP SHA-256 digests. On-phone synthetic and real-data **`check`** passed, the owner setup returned explicit Success, and one launch was accepted. The owner supplied Hub and phone screenshots with recent attested connection, populated Manager, and green Compute Status after manually using **Install executor**. [Anonymized case](CASO_REDMI_NOTE_12S.md). This is real runtime evidence for **that exact configuration**, but not independent audit of Hub, validation of Hub pairing signature, long-term operation evidence, or general Android compatibility.
+
+### Additional November 2026 guided Android 14 trial — Samsung A04 SM-A045M
+
+The **SM-A045M** ran official Core 1.29.0, Android 14, locked/green boot state and **Knox warranty bit 1**. The owner verified the same revised helper hashes, passed synthetic and real-payload on-phone `check`, and obtained an explicit Device Owner **Success** confirmed by `dpm list-owners`. The owner reported entry into Core, scrcpy disconnection during configuring, and successful local completion after **Install executor**. **Exact launch stdout and official A04-specific Hub connection/attestation were not supplied**. The later local dashboard screenshot matched the previously identified **Redmi**, not A04. [A04 field record](CASE_SAMSUNG_A04_SM_A045M.md) · [field playbook](FIELD_PLAYBOOK.md).
+
 ## Revised implementation
 
 The [helper](../tools/CoreProvision.java) retains the typed transport and adds fixed redacted error codes, bounded reads, an explicit shell-UID/foreground-user gate, deterministic exact-signature selection, and failure status for every launch result except the observed result 0. Result 0 still proves only activity-start acceptance.
@@ -20,7 +28,7 @@ Neither program verifies the Hub's cryptographic pairing signature. Certificate 
 
 ## Release validation
 
-Status on **2026-09-18**: **host checks passed; a full phone test of this revision is still pending.**
+**Historical snapshot on 2026-09-18:** host checks passed, and **at that date** the revised source had not yet completed a full phone test. **This is not the current status**; November 2026 guided phone trials are documented above.
 
 | Check | Evidence |
 | --- | --- |
@@ -44,7 +52,9 @@ Reproduced helper.zip SHA-256 for this source and pinned toolchain:
 
 The [source checksum file](../tools/source.sha256) binds the helper and validator bytes at pinned source revision aba76f02ef40d929abfe4053a8b59c5d6d8542e3. Rebuild and update this record whenever they change.
 
-### Remaining spare-phone test
+### Remaining independent/reproducibility testing
+
+Two owner-guided Android 14 runtime trials now exist. The following is a **future independent replication checklist**, not a claim that those trials never occurred.
 
 Use an identified, backed-up spare phone with explicit authorization for the specific test. Start from the pasted prompt for the exact source revision being tested, without relying on a pre-existing helper. Do not treat work on this repository as phone permission.
 

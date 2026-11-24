@@ -1,0 +1,82 @@
+name: Windows MVP checks
+
+on:
+  push:
+    branches:
+      - feature/windows-core-onboarding-mvp
+  pull_request:
+    paths:
+      - "INICIAR.ps1"
+      - "tools/*.ps1"
+      - "tools/validate_cases.py"
+      - "compatibilidad/**"
+      - ".github/workflows/windows-mvp-validation.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  host-checks:
+    name: Validate registry and PowerShell 5.1 syntax
+    runs-on: windows-2022
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository (read-only)
+        uses: actions/checkout@v4
+
+      - name: Validate anonymized compatibility records
+        shell: pwsh
+        run: |
+          python tools/validate_cases.py
+          if ($LASTEXITCODE -ne 0) { throw "Compatibility registry validation failed" }
+
+      - name: Parse Windows PowerShell 5.1 tools
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $scripts = @(
+            'INICIAR.ps1',
+            'tools/Select-AcurastRelease.ps1',
+            'tools/Private-QR-Notepad.ps1',
+            'tools/Read-Device-Status.ps1'
+          )
+          foreach ($script in $scripts) {
+            $tokens = $null
+            $errors = $null
+            [void][System.Management.Automation.Language.Parser]::ParseFile(
+              (Join-Path (Get-Location) $script),
+              [ref]$tokens, [ref]$errors
+            )
+            if ($errors.Count -gt 0) {
+              $errors | ForEach-Object { Write-Error ("{0}: {1}" -f $script, $_.Message) }
+              throw ("PowerShell syntax check failed: " + $script)
+            }
+            Write-Host ("PASS: " + $script)
+          }
+
+      - name: Check real Core release discovery on Windows (no download)
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $latestOutput = @(& .\tools\Select-AcurastRelease.ps1 -Channel LatestStable)
+          $previousOutput = @(& .\tools\Select-AcurastRelease.ps1 -Channel PreviousStable)
+          $latestOutput | ForEach-Object { Write-Host $_ }
+          $previousOutput | ForEach-Object { Write-Host $_ }
+          $latestLine = @($latestOutput | Where-Object { $_ -match '^Seleccionada: processor-[0-9]+[.][0-9]+[.][0-9]+' })
+          $previousLine = @($previousOutput | Where-Object { $_ -match '^Seleccionada: processor-[0-9]+[.][0-9]+[.][0-9]+' })
+          if ($latestLine.Count -ne 1 -or $previousLine.Count -ne 1) { throw 'Release selection missing or malformed' }
+          $latest = [version]($latestLine[0] -replace '^Seleccionada: processor-', '')
+          $previous = [version]($previousLine[0] -replace '^Seleccionada: processor-', '')
+          if ($latest -le $previous) { throw 'LatestStable should be newer than PreviousStable' }
+          if ($latestOutput -notcontains 'Solo consulta: sin descarga ni instalacion.' -or
+              $previousOutput -notcontains 'Solo consulta: sin descarga ni instalacion.') {
+            throw 'Version check did not confirm no-download mode'
+          }
+          Write-Host ('PASS: LatestStable=' + $latest + ', PreviousStable=' + $previous + '; no APK was downloaded.')
+
+      - name: No phone operations in CI
+        shell: pwsh
+        run: |
+          Write-Host "Only host-side PowerShell parsing, public JSON validation and official release metadata lookup."
+          Write-Host "No Android device, QR, wallet, APK installation or Device Owner changes are used."

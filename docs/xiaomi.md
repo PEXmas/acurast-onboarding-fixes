@@ -25,4 +25,10 @@ For Google's scanning settings, open Play Store → profile → Play Protect →
 
 This describes the preparation used, not a setting change proven necessary on Xiaomi. It reduces scanning; behavior after re-enabling it was not tested.
 
+## Additional field case: Redmi Note 12S / HyperOS / Android 14
+
+The [Redmi Note 12S report](CASO_REDMI_NOTE_12S.md) documents a **different phone** from the MIUI 14 device above. HyperOS required a temporary Xiaomi account and SIM to enable USB options, but `adb install` still returned `INSTALL_FAILED_USER_RESTRICTED`. The verified official Core 1.29.0 APK was instead installed from Downloads using Xiaomi File Manager and the phone's own security review. No Play Protect deactivation was needed in that report. After the owner removed Google/Xiaomi accounts, `dpm list-owners` returned `no owners`; the subsequently authorized owner command succeeded. Hub showed attested, recent connectivity and **Ajustes → Instalar executor** changed orange Compute Status to green.
+
+**Do not generalize:** do not infer that SIM/login is always required or that the exact security switch fixed ADB installation. Do not recommend deactivating malware scanning, rooting or flashing based on this case. The linked report distinguishes proven steps from unknowns.
+
 Optional reference: [Xiaomi USB security setup described by AirDroid](https://help.airdroid.com/hc/en-us/articles/360045329413-How-to-Enable-USB-debugging-on-Xiaomi).

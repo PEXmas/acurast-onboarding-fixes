@@ -2,7 +2,7 @@
 
 This route uses a computer and USB cable to install the official Core app, register device ownership, and deliver the Hub's signed pairing data. You can use [AI-assisted help](ai-assisted.md) or follow the commands below manually.
 
-The build steps cover macOS Apple Silicon. See [what has been tested](helper-review.md#release-validation) for the difference between earlier phone results and the latest helper changes.
+The documented clean build steps cover macOS Apple Silicon. Since the historical September 2026 host tests, **the revised helper was also used in two owner-guided Android 14 field sessions** (Redmi Note 12S and Galaxy A04 SM-A045M). See [dated evidence](helper-review.md) and [decision playbook](FIELD_PLAYBOOK.md); this is not universal validation.
 
 Reading requires no download or clone. Actual setup requires the [pinned tools and source](../tools/README.md). Work through the [checklist](checklist.md) at every stage. Commands are separate stages, not a script to paste and run end to end. Stop whenever a command fails.
 
@@ -31,11 +31,13 @@ Only after the app checks and an authorized installation plan:
 "$CORE_ADB" -s "$CORE_SERIAL" install "$CORE_WORK/processor-1.27.1.apk"
 ```
 
+The command above is a **historical 1.27.1 example**; the two subsequent field trials installed **verified official Core 1.29.0 / versionCode 144**. Do not copy this older filename blindly or downgrade a phone. Choose a verified official release appropriate to your target and date.
+
 If an app is already installed, stop to identify its version, signer, and pairing state. Do not add replacement, downgrade, or clear-data flags automatically. Confirm the installed package and version, not just the downloaded filename. Package is `com.acurast.attested.executor.canary`; the tested version is 1.27.1 / 136.
 
 ## Private pairing file
 
-Create a new private directory outside the repository and cloud sync, with mode 700. In a trusted local editor without AI/cloud features, the owner saves Hub **Copy QR Data** as plain UTF-8 `payload.json` there. Set the file mode to 600. Set `CORE_PAYLOAD` to its absolute path. Do not put the payload in a command, clipboard-reading tool, chat, screenshot, or public QR decoder.
+Create a new private directory outside the repository and cloud sync, with mode 700 on POSIX systems; on **Windows restrict directory AND file ACLs** to the current account. If the file was briefly in Downloads, move it to private storage and confirm the old copy no longer exists. In a trusted local editor without AI/cloud features, the owner saves Hub **Copy QR Data** as plain UTF-8 `payload.json` there. Set the file mode to 600. Set `CORE_PAYLOAD` to its absolute path. Do not put the payload in a command, clipboard-reading tool, chat, screenshot, or public QR decoder.
 
 Using the public signer-certificate SHA-256 hex digest from verified apksigner output, set `CORE_CERT_SHA256` to those 64 hex digits. This is an APK certificate digest, not the APK file digest.
 
@@ -69,7 +71,7 @@ Expected: typed bundle and all five fields verified, launch interface matched, a
 
 ## Ownership — stop at Gate A
 
-Complete [Gate A](checklist.md#gate-a--the-last-reversible-point). Explain that this helper revision has passed computer tests but has not yet completed a full phone test, and confirm the owner's setup authorization. Core must not be running; re-check accounts, profiles, owner state, version, file identity, and expiry. The owner must understand that recovery may require a reset.
+Complete [Gate A](checklist.md#gate-a--the-last-reversible-point). Explain the revision's **limited, dated** evidence: host tests plus two owner-guided Android 14 runtime trials, only one with an official Hub attestation screenshot. Confirm the owner's specific authorization for this phone. Core must not be running; re-check accounts, profiles, owner state, version, file identity, and expiry. The owner must understand that recovery may require a reset.
 
 Only then, in an authorized session:
 
@@ -89,7 +91,7 @@ Only after ownership is confirmed:
 
 The helper only accepts result 0; a nonzero result or exception stops the procedure. Result 0 is not pairing success. Inspect the phone promptly: Manager: not set means pairing is incomplete. A disclaimer requires the owner to read and accept within the actual validity window. Verify the intended processor online in the intended Hub wallet.
 
-Core may disconnect ADB. That is not evidence of online status. Follow [Gate B and Gate C](checklist.md#gate-b--did-the-pairing-actually-apply).
+Core may disconnect ADB **and scrcpy**. With a damaged touchscreen, test independent OTG/Bluetooth control before ownership. Lost ADB alone is not evidence of online status. Follow [Gate B and Gate C](checklist.md#gate-b--did-the-pairing-actually-apply).
 
 ## Cleanup
 

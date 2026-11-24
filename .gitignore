@@ -26,3 +26,11 @@ logs/
 *.pem
 *.key
 credentials.json
+
+# Windows onboarding: never commit Hub pairing payloads or local credentials
+payload.json
+payload*.json
+**/AcurastPairing/
+**/*pairing*.json
+*.keystore
+*.p12
