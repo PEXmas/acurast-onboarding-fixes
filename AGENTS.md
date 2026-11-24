@@ -21,7 +21,8 @@ When answering questions about device support, also read:
 - `compatibilidad/casos.json` for structured, source-labelled case evidence;
 - `compatibilidad/PLANTILLA_CASO.md` when recording a new experiment;
 - `docs/USAR_CON_IA.md` for the copyable prompt;
-- `docs/CASO_REDMI_NOTE_12S.md` for the Xiaomi Android 14/HyperOS and Core 1.29.0 guided test, prerequisites, exact observed troubleshooting and evidence limits.
+- `docs/CASO_REDMI_NOTE_12S.md` for the Xiaomi Android 14/HyperOS and Core 1.29.0 guided test, prerequisites, exact observed troubleshooting and evidence limits;
+- `docs/CASE_SAMSUNG_A04_SM_A045M.md` for the Samsung Android 14, Knox bit 1 guided USB trial with Device Owner success, user-reported Core enrollment, and **Hub attestation still unverified**.
 
 Keep following the original `AI-ONBOARDING.md` and `docs/ai-assisted.md`: this index **does not authorize phone operations**.
 
@@ -30,6 +31,8 @@ Keep following the original `AI-ONBOARDING.md` and `docs/ai-assisted.md`: this i
 **Practical guidance:** explain what is known, what is unknown, safety/backup risk and one least-risk next step. Prefer read-only checks and official updates. Stop when a privileged command fails. A `dpm set-device-owner` exception remains a failure even if Device Owner is subsequently visible; do not automatically retry, launch, flash or reset. A helper `check`, a launch-accepted message, and a green UI are not substitutes for evidence in Hub.
 
 **Case-specific advice:** Xiaomi `INSTALL_FAILED_USER_RESTRICTED` may block ADB even when the APK is verified; first inspect the phone warning and vendor permissions, never bypass signer verification or disable Play Protect as a generic fix. In the Redmi Note 12S case, **manual installation of the verified APK** worked. If Core already shows a Manager, Hub recent heartbeat/attestation, but `Executors not installed` is orange, check whether local Core **Settings → Install executor** exists *before* recommending APK reinstall, repeated pairing or whole-farm updates. This specific action turned the Redmi green; in the A52s case a separate update preceded the green state. Do not claim they share the same root cause. Executor readiness is recorded only to close onboarding, not to analyze computational output. Device Owner, account removal and reset require explicit per-device authorization.
+
+**Samsung A04 evidence boundary:** the owner-guided SM-A045M with `ro.boot.warranty_bit=1` reached Core enrollment after verified APK, helper, explicit Device Owner success and local executor install. Hub Online and attestation have **not** yet been independently or explicitly confirmed for that A04. Do not call it a verified Online case. Distinguish it from the upstream SM-A045F case that involved separate stock firmware restoration/relock. A tripped Knox warranty bit is not proof of absolute failure or universal success. Touchscreen faults can cause ADB/scrcpy loss on lockdown. Never assume OTG control was actually tested.
 
 **Privacy:** never request or publish QR/payload JSON, wallet addresses, pairing signatures, seeds, private keys, emails, phone identifiers (IMEI, serial, ADB ID), full system logs or uncensored screenshots. Use local private storage and only sanitized outcome summaries. New case records must identify provenance and uncertainty, must be reviewed before publication, and must never silently overwrite a failed attempt.
 

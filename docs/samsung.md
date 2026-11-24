@@ -24,6 +24,12 @@ Settings → About phone → Software information → tap **Build number seven t
 
 Before device-owner registration, remove setup accounts normally: Settings → Accounts and backup → Manage accounts → account → Remove account. Preserve unsynced data first; this removes the account from the phone, not the cloud account itself.
 
+## A04 SM-A045M with Knox warranty bit 1: a separate guided fork case
+
+In November 2026, the owner of a **Galaxy A04 SM-A045M / Android 14** reported successful Core 1.29.0 USB enrollment **without flashing firmware**, despite `ro.boot.warranty_bit=1`. ADB showed a locked bootloader and Verified Boot green; Acurast Lite's managed user 11 was uninstalled through its own UI; Device Owner registration returned **Success**; helper `check` passed; the owner subsequently reported the Core onboarding screen and resolved `Executors not installed` through the in-app **Install executor** action. **Hub Online and attestation for this SM-A045M are still unverified.** The session also involved ghost touches and the loss of scrcpy as Core entered dedicated mode. See [anonymized field record](CASE_SAMSUNG_A04_SM_A045M.md).
+
+**Do not extrapolate** to other Samsung Knox tripped phones. Do not recommend a flash, relock, Knox bypass or account/profile bypass from this anecdote; users must prepare a reliable physical input method before potentially irreversible device ownership.
+
 ## Stock firmware
 
 Our SM-A045F needed separate stock restoration/relock first, and its Knox bit stayed tripped. That is not a standard onboarding step. No generic flash or relock recipe is provided. [Recovery boundaries](recovery.md).

@@ -3,6 +3,69 @@
   "explanation": "Anonymous field evidence limited to guided Acurast Core onboarding via USB instead of scanning the camera QR (fresh signed Hub pairing data remains required). No ACU or production analytics. Reports are not compatibility certifications.",
   "entries": [
     {
+      "id": "samsung-a045m-android14-knox1-guided-2026-11",
+      "device": "Samsung Galaxy A04 SM-A045M (Knox Warranty Bit 1; broken touch)",
+      "android": "14",
+      "core_initial": "1.29.0",
+      "core_final": "1.29.0",
+      "method": "Windows ADB + verified official Core APK + community USB helper and private Hub QR data",
+      "source_type": "guided_observation",
+      "source": "docs/CASE_SAMSUNG_A04_SM_A045M.md",
+      "result": "core_ui_green_online_unverified",
+      "online_verified": false,
+      "evidence": [
+        "Android 14 API 34 ARM64; bootloader locked, verified boot green, Knox warranty bit 1; August 2026 patch",
+        "Acurast Lite work-profile user 11/profile owner removed via Lite uninstall; only user 0 and no owners remained",
+        "Official Core 1.29.0 installed through adb install with Success; versionCode 144 confirmed",
+        "Pinned helper SHA-256s matched; synthetic and private real-payload on-device check succeeded",
+        "Android set-device-owner returned explicit Success; dpm list-owners confirmed DeviceOwner and Affiliated on user 0",
+        "Owner reported Core configuring/enrollment screen after launch; scrcpy connection was lost during dedicated setup",
+        "Owner reported Core enrollment completed after using in-app Install executor for Executors not installed",
+        "No A04-specific fresh Hub recent-connection/attestation evidence supplied; do not infer Online"
+      ],
+      "issues": [
+        {
+          "code": "qr_setup_failed_earlier",
+          "symptom": "Welcome-screen Core QR enrollment after factory reset previously did not proceed into expected managed setup; exact error unrecorded",
+          "observed_action": "Owner chose a separate authorized USB-assisted Core provisioning experiment",
+          "outcome": "Owner reports Core onboarding via USB; original QR failure cause unproven"
+        },
+        {
+          "code": "lite_work_profile_owner",
+          "symptom": "Lite was ProfileOwner in work-profile user 11; unqualified package listing failed with shell permission exception",
+          "observed_action": "Owner used Lite in-app Uninstall and removed remaining Google/Samsung accounts; then repeated read-only checks",
+          "outcome": "Only Android user 0 remained; dpm list-owners returned no owners"
+        },
+        {
+          "code": "knox_warranty_tripped",
+          "symptom": "ro.boot.warranty_bit=1 despite locked bootloader and verifiedbootstate green",
+          "observed_action": "No bootloader or firmware modifications; official APK, helper and Android owner setup performed with consent",
+          "outcome": "Device Owner succeeded and user reached Core; Hub attestation not yet checked"
+        },
+        {
+          "code": "ghost_touch_adb_lockdown",
+          "symptom": "Ghost touches required scrcpy control; scrcpy disconnected during Core configuring",
+          "observed_action": "Owner continued observation of device after USB launch; mouse OTG use was considered but not independently confirmed",
+          "outcome": "Owner reported completed Core enrollment; reliable post-lockdown physical control remains a caution"
+        },
+        {
+          "code": "executors_missing",
+          "symptom": "Core UI showed Executors not installed after onboarding",
+          "observed_action": "Owner used the Acurast Core app's local Install executor option",
+          "outcome": "Owner reported completion of initial setup; no fresh A04 Hub Online/attestation screenshot was supplied"
+        }
+      ],
+      "risk_notes": [
+        "Do not label Hub Online or attested from UI-only owner report; explicit Hub last-seen/attestation confirmation still pending",
+        "Knox warranty bit 1 does not universally prove eligibility; success applies only to this exact guided model and software context",
+        "Different from upstream SM-A045F stock-restore case; this SM-A045M test did not flash firmware",
+        "Device Owner is potentially irreversible: never auto-run, repeat after failure, reset, bypass device controls or undermine security",
+        "QR transported privately and its signature is not cryptographically verified by local helper; staged QR cleanup unverified",
+        "Touch was unreliable and scrcpy disconnected; independent OTG control had not been proven"
+      ],
+      "last_observed": "2026-11"
+    },
+    {
       "id": "redminote12s-android14-hyperos-windows-2026-11",
       "device": "Xiaomi Redmi Note 12S (2303ERA42L; damaged camera)",
       "android": "14",

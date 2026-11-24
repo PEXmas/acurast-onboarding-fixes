@@ -6,7 +6,7 @@ Puedes darle a una IA con acceso a GitHub este repositorio:
 
 **https://github.com/PEXmas/acurast-onboarding-fixes**
 
-Pídele que lea `AGENTS.md`, `docs/COMPATIBILIDAD.md` y `compatibilidad/casos.json`. Para Xiaomi, Android 14, cámara dañada o `Executors not installed`, debe consultar también [`docs/CASO_REDMI_NOTE_12S.md`](CASO_REDMI_NOTE_12S.md). No confundir sus resultados con los del [A52s](CASO_A52S.md). No todos los asistentes tienen acceso automático a GitHub: en ese caso, abre esos archivos y facilita solo el texto público, **nunca** el payload del QR.
+Pídele que lea `AGENTS.md`, `docs/COMPATIBILIDAD.md` y `compatibilidad/casos.json`. Para Xiaomi, Android 14, cámara dañada o `Executors not installed`, debe consultar también [`docs/CASO_REDMI_NOTE_12S.md`](CASO_REDMI_NOTE_12S.md). Para Samsung A04 con Knox alterado, lee [el nuevo caso **SM-A045M**](CASE_SAMSUNG_A04_SM_A045M.md) y diferencia el informe previo **SM-A045F** del proyecto original. No confundir sus resultados con los del [A52s](CASO_A52S.md). No todos los asistentes tienen acceso automático a GitHub: en ese caso, abre esos archivos y facilita solo el texto público, **nunca** el payload del QR.
 
 ## Mensaje de ejemplo para copiar
 
