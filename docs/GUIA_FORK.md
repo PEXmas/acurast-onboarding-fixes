@@ -27,6 +27,7 @@ El script `tools/Private-QR-Notepad.ps1` crea, si hace falta, un directorio loca
 - **GitHub Actions:** pruebas en Windows PowerShell 5.1 de sintaxis, casos JSON y consulta de releases oficiales completadas.
 - **Windows real + Redmi Note 12S:** descarga y firma de APK estable Core 1.29.0 verificadas. El equipo bloqueó `adb install`, pero aceptó instalación manual desde Administrador de archivos después de comprobaciones de Seguridad Xiaomi.
 - **Android 14 / Redmi Note 12S:** helper con hashes coincidentes pasó `check` sintético y real, Device Owner obtuvo `Success`, Hub mostró conexión reciente y atestación, y el estado naranja de ejecutores pasó a verde al usar `Ajustes → Instalar executor`. [Informe de campo](CASO_REDMI_NOTE_12S.md).
+- **Samsung Galaxy A04 SM-A045M / Knox 1 / Android 14:** Core 1.29.0 instalado por ADB, `check` sintético/real aprobado, Device Owner **Success**. El usuario confirmó la configuración local tras **Instalar executor**, pero **Hub Online/atestación específica del A04 está pendiente**. [Informe en inglés](CASE_SAMSUNG_A04_SM_A045M.md) · [playbook](FIELD_PLAYBOOK.md).
 - **Pendiente para el objetivo de enrolamiento:** revisar limpieza de archivos privados si ADB desaparece y reproducibilidad en otros modelos/firmware. El helper no autentica la firma de pairing del Hub. Medir producción o rendimiento queda **fuera de alcance**.
 
 La prueba es individual y guiada, no constituye una certificación ni autoriza automatizar Device Owner, borrar datos o actualizar una granja. No publicar información real de pairing en issues/PR.

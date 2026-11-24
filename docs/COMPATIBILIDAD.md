@@ -1,5 +1,7 @@
 # Compatibilidad observada y lecciones de campo
 
+**Resumen técnico en inglés:** [AI field playbook](FIELD_PLAYBOOK.md) · [Redmi Note 12S](CASE_REDMI_NOTE_12S.md) · [Samsung A04](CASE_SAMSUNG_A04_SM_A045M.md).
+
 **No es una lista oficial de equipos compatibles.** Es un registro de experiencias puntuales, dependientes de versión de Android, firmware, versión de Core y secuencia aplicada. Datos para lectura automática: [`compatibilidad/casos.json`](../compatibilidad/casos.json).
 
 | Equipo | Android | Estado documentado | Procedencia |
@@ -17,6 +19,8 @@
 El proyecto original describe casos concretos; este fork **no ha replicado** sus pruebas. Fuente: [README de bokiko/acurast-onboarding-fixes](https://github.com/bokiko/acurast-onboarding-fixes/blob/main/README.md).
 
 ## Galaxy A04 SM-A045M: Knox alterado no impidió llegar a Core
+
+La captura posterior del **dashboard local** correspondía al procesador ya identificado como **Redmi**. No demuestra por sí sola conexión/atestación del A04 en Acurast Hub. El éxito de configuración local del Samsung fue reportado por su propietario.
 
 En [este caso del fork](CASE_SAMSUNG_A04_SM_A045M.md), el **SM-A045M / Android 14 / `warranty_bit=1`** aceptó la APK oficial 1.29.0 por ADB, pruebas del helper y **Device Owner con Success**. Después, el propietario informó que se completó el enrolamiento tras seleccionar **Instalar executor** en Core. **No hay todavía una captura o comprobación específica de Online/atestación en Hub para ese equipo.** Este caso se diferencia del anterior **SM-A045F** reportado por upstream, que incluía restauración de firmware: nuestro SM-A045M **no requirió flasheo en la sesión**. Knox alterado no equivale automáticamente a incompatibilidad, pero no garantiza atestación en otros dispositivos.
 

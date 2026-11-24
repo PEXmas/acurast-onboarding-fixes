@@ -38,7 +38,7 @@ Para diagnóstico de solo lectura (ADB):
 - No uses la versión estable anterior sin comprobar su compatibilidad con el procedimiento vigente.
 - Los scripts aún requieren pruebas integrales en Windows y con dispositivos de prueba.
 
-Documentación adicional: [guía del fork](docs/GUIA_FORK.md), [caso Redmi Note 12S sin cámara](docs/CASO_REDMI_NOTE_12S.md) y [caso A52s](docs/CASO_A52S.md). El Redmi documenta una sesión exitosa de vinculación en Hub y activación local de ejecutores; **el menú Windows no automatiza enrolamiento**, y el propósito del fork termina al verificar el enrolamiento, el vínculo en Hub y, si procede, los ejecutores.
+Documentación adicional: [guía del fork](docs/GUIA_FORK.md), [playbook de IA (inglés)](docs/FIELD_PLAYBOOK.md), [caso Redmi Note 12S](docs/CASO_REDMI_NOTE_12S.md), [caso Samsung A04 Knox 1](docs/CASE_SAMSUNG_A04_SM_A045M.md) y [caso A52s](docs/CASO_A52S.md). El Redmi documenta una sesión exitosa de vinculación en Hub y activación local de ejecutores; **el menú Windows no automatiza enrolamiento**, y el propósito del fork termina al verificar el enrolamiento, el vínculo en Hub y, si procede, los ejecutores.
 
 ## ¿Qué teléfonos han sido probados?
 

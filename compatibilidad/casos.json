@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "explanation": "Anonymous field evidence limited to guided Acurast Core onboarding via USB instead of scanning the camera QR (fresh signed Hub pairing data remains required). No ACU or production analytics. Reports are not compatibility certifications.",
+  "explanation": "Anonymized Core USB onboarding observations; scanning the QR camera is replaced but fresh signed Hub data remains necessary. Each screenshot must be associated with the exact phone. Local dashboard status is not evidence of official Hub attestation for a different phone. No ACU/reward/production analytics.",
   "entries": [
     {
       "id": "samsung-a045m-android14-knox1-guided-2026-11",
@@ -21,7 +21,8 @@
         "Android set-device-owner returned explicit Success; dpm list-owners confirmed DeviceOwner and Affiliated on user 0",
         "Owner reported Core configuring/enrollment screen after launch; scrcpy connection was lost during dedicated setup",
         "Owner reported Core enrollment completed after using in-app Install executor for Executors not installed",
-        "No A04-specific fresh Hub recent-connection/attestation evidence supplied; do not infer Online"
+        "No A04-specific fresh Hub recent-connection/attestation evidence supplied; do not infer Online",
+        "Later owner shared a private local dashboard screenshot associated with already-identified Redmi, not the Samsung A04 Hub Phones entry"
       ],
       "issues": [
         {
@@ -61,7 +62,8 @@
         "Different from upstream SM-A045F stock-restore case; this SM-A045M test did not flash firmware",
         "Device Owner is potentially irreversible: never auto-run, repeat after failure, reset, bypass device controls or undermine security",
         "QR transported privately and its signature is not cryptographically verified by local helper; staged QR cleanup unverified",
-        "Touch was unreliable and scrcpy disconnected; independent OTG control had not been proven"
+        "Touch was unreliable and scrcpy disconnected; independent OTG control had not been proven",
+        "Never treat another processor or self-hosted monitoring dashboard as Hub attestation evidence for this A04"
       ],
       "last_observed": "2026-11"
     },
@@ -82,7 +84,8 @@
         "Explicit Device Owner Success; subsequent dpm list-owners confirmed affiliated DeviceOwner on user 0",
         "Single launch returned Activity start accepted (0), not proof of pairing alone",
         "Owner supplied Hub Phones screenshot showing recent connection and attested Core 1.29.0 processor",
-        "Owner supplied on-phone screenshots showing configured Manager, recent heartbeat, attested and Compute Status green/Active after using Settings > Install executor"
+        "Owner supplied on-phone screenshots showing configured Manager, recent heartbeat, attested and Compute Status green/Active after using Settings > Install executor",
+        "Later local-dashboard screenshot matched the previously identified Redmi; official Hub evidence derives from separate Hub Phones screenshot"
       ],
       "issues": [
         {

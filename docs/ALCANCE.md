@@ -29,6 +29,6 @@
 
 ## Reglas para asistentes de IA
 
-Leer primero [AGENTS.md](../AGENTS.md), [registro de compatibilidad](COMPATIBILIDAD.md), [checklist](checklist.md) y el [caso comparable](CASO_REDMI_NOTE_12S.md). Diferenciar **APKs instaladas, Device Owner, launch, vinculación y Hub**. No pedir a nadie que comparta QR, payload, cuentas, claves, seriales o capturas sin anonimizar. Un helper `check` no autentica firma del Hub, y `Activity start accepted (0)` no acredita emparejamiento. Detenerse tras errores de privilegios; no repetir comandos automáticamente.
+Leer primero [AGENTS.md](../AGENTS.md), [playbook por etapas en inglés](FIELD_PLAYBOOK.md), [registro de compatibilidad](COMPATIBILIDAD.md), [checklist](checklist.md) y el [caso comparable](CASO_REDMI_NOTE_12S.md). Diferenciar **APKs instaladas, Device Owner, launch, vinculación y Hub**. No pedir a nadie que comparta QR, payload, cuentas, claves, seriales o capturas sin anonimizar. Un helper `check` no autentica firma del Hub, y `Activity start accepted (0)` no acredita emparejamiento. Detenerse tras errores de privilegios; no repetir comandos automáticamente.
 
 **Carácter del proyecto:** extensión comunitaria no oficial, con pruebas por modelo/versión. La guía es para uso manual y asistencia de IA; no un instalador garantizado de un clic.

@@ -1,5 +1,7 @@
 # Caso probado: Redmi Note 12S sin cámara — Core 1.29.0
 
+> English companion: [Redmi Note 12S field report](CASE_REDMI_NOTE_12S.md) · [AI decision playbook](FIELD_PLAYBOOK.md).
+
 > Observación guiada en noviembre de 2026. No es documentación oficial de Acurast, ni una garantía para otros dispositivos. Se conserva solo un resumen técnico **anonimizado**; los QR, direcciones, seriales, correos, fotos sin anonimizar y archivos privados no forman parte del repositorio.
 
 ## Dispositivo y resultado

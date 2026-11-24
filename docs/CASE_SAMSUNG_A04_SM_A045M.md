@@ -27,6 +27,10 @@
 | Launch and enrollment UI | After the authorized launch attempt, owner reported the phone entered **Configuring/Enrolling**. `scrcpy` disconnected when Core entered the dedicated flow. | **Exact launch command stdout was not supplied for the A04**, so do not claim a captured `Activity start accepted (0)` result. `scrcpy` disconnection by itself is not proof of successful enrollment. |
 | Finish in Core | Owner reported that Core reached its interface, again showed `Executors not installed`, and that selecting the in-app **Install executor** option completed setup. | **Owner-reported successful enrollment and initial executor installation**. No fresh Hub attestation or last-seen screenshot has yet been provided for this A04. |
 
+## Later evidence clarification
+
+The owner reaffirmed that **both** Redmi Note 12S and Samsung A04 completed their **local Core setup after selecting Install executor**. A later screenshot of a **self-hosted local monitoring dashboard** showed the previously identified **Redmi** processor with recent activity, **not** an independently identified A04 on official **Acurast Hub Phones**. This does not contradict the owner's report that the A04 completed Core setup, but it **cannot establish A04-specific Hub Online/attestation**. A fresh Hub view for this specific phone remains pending. No production data or identifiers are included.
+
 ## What the result supports — and what it does not
 
 - The **Knox warranty fuse being tripped (`1`) did not prevent** Core 1.29.0 APK installation, helper `check`, successful Android Device Owner registration, or progression to Core's onboarding UI on this **specific** `SM-A045M`.

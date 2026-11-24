@@ -12,7 +12,7 @@
 **¿Executor instalado y Compute Status verde?** Sí, reportado / No / No comprobado
 **¿Se completó el enrolamiento en Hub?** Sí, reportado / No / Pendiente  
 **¿Online en Hub?** Sí, reportado / No / No comprobado  
-**Estado de evidencia:** capturas editadas sin secretos / salida ADB depurada / observación verbal  
+**Estado de evidencia:** Hub Phones del dispositivo correcto / captura local Core / dashboard propio / salida ADB depurada / relato verbal (no son equivalentes)  
 **Origen de la evidencia:** observación guiada / reporte de la comunidad / documentación del proveedor  
 **Fecha general (mes/año, opcional):**  
 **Advertencias y límites:**
@@ -31,6 +31,8 @@
 - Esta plantilla documenta exclusivamente el enrolamiento; no registrar ACU, ingresos ni rendimiento. Distinguir Device Owner, Manager, conexión en Hub y executor inicial; un indicador verde no garantiza compatibilidad universal.
 - Registrar por separado instalación ADB y manual; un error de ADB no demuestra firma APK inválida.
 - Si se manejó `payload.json` en USB, documentar si pudo borrarse la copia temporal sin revelar QR, hashes, firmas o timestamps exactos.
+- No atribuir una captura de **otro procesador** o un dashboard local al dispositivo observado en **Acurast Hub Phones**.
+- Si hay toques fantasma, registrar que scrcpy puede desconectarse y si el mouse OTG se **probó realmente**, no solo se propuso.
 - Publicar solo después de revisar con la persona que compartió los datos.
 
 Luego añadir una entrada anonimizada a `casos.json` y ejecutar `python tools/validate_cases.py`.
